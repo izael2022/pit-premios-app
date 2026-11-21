@@ -17,16 +17,16 @@ function App(){
  const[proofs,setProofs]=useState({}),[missionForm,setMissionForm]=useState({title:'',description:'',reward_points:1000,proof_required:true,starts_at:'',ends_at:''}),[refReward,setRefReward]=useState(1000),[withdrawForm,setWithdrawForm]=useState({points:10000,pix_key:'',pix_key_type:'other'});
  const nav=[['Início',Home],['Missões',ClipboardList],['Convites',Users],['Carteira',Wallet],['Perfil',User]];
  const loadData=useCallback(async(uid)=>{if(!uid)return;setBusy(true);setMessage('');try{
- const[p,l,m,s,r,w,a]=await Promise.all([
+ const a=await supabase.from('admins').select('user_id').eq('user_id',uid).maybeSingle();const isAdmin=!a.error&&!!a.data;
+ const[p,l,m,s,r,w]=await Promise.all([
  supabase.from('profiles').select('*').eq('id',uid).maybeSingle(),
  supabase.from('points_ledger').select('*').eq('user_id',uid).order('created_at',{ascending:false}),
  supabase.from('missions').select('*').eq('status','published').order('created_at',{ascending:false}),
- supabase.from('mission_submissions').select('*').eq('user_id',uid).order('created_at',{ascending:false}),
- supabase.from('referrals').select('*').eq('referrer_id',uid).order('created_at',{ascending:false}),
- supabase.from('withdrawal_requests').select('*').eq('user_id',uid).order('created_at',{ascending:false}),
- supabase.from('admins').select('user_id').eq('user_id',uid).maybeSingle()]);
+ isAdmin?supabase.from('mission_submissions').select('*').order('created_at',{ascending:false}):supabase.from('mission_submissions').select('*').eq('user_id',uid).order('created_at',{ascending:false}),
+ isAdmin?supabase.from('referrals').select('*').order('created_at',{ascending:false}):supabase.from('referrals').select('*').eq('referrer_id',uid).order('created_at',{ascending:false}),
+ isAdmin?supabase.from('withdrawal_requests').select('*').order('created_at',{ascending:false}):supabase.from('withdrawal_requests').select('*').eq('user_id',uid).order('created_at',{ascending:false})]);
  if(p.error)throw p.error;if(l.error)throw l.error;if(m.error)throw m.error;if(s.error)throw s.error;if(r.error)throw r.error;if(w.error)throw w.error;
- setProfile(p.data);setLedger(l.data||[]);setBalance((l.data||[]).reduce((n,x)=>n+Number(x.amount||0),0));setMissions((m.data||[]).filter(x=>(!x.starts_at||x.starts_at<=new Date().toISOString())&&(!x.ends_at||x.ends_at>=new Date().toISOString())));setSubmissions(s.data||[]);setReferrals(r.data||[]);setWithdrawals(w.data||[]);setAdmin(!a.error&&!!a.data);
+ setProfile(p.data);setLedger(l.data||[]);setBalance((l.data||[]).reduce((n,x)=>n+Number(x.amount||0),0));setMissions((m.data||[]).filter(x=>(!x.starts_at||x.starts_at<=new Date().toISOString())&&(!x.ends_at||x.ends_at>=new Date().toISOString())));setSubmissions(s.data||[]);setReferrals(r.data||[]);setWithdrawals(w.data||[]);setAdmin(isAdmin);
  }catch(e){setMessage(e.message||'Falha ao carregar dados.')}finally{setBusy(false)}},[]);
  useEffect(()=>{supabase.auth.getSession().then(({data})=>{setSession(data.session);setLoading(false);if(data.session)loadData(data.session.user.id)});const{data:{subscription}}=supabase.auth.onAuthStateChange((_event,s)=>{setSession(s);setLoading(false);if(s)loadData(s.user.id)});return()=>subscription.unsubscribe()},[loadData]);
  useEffect(()=>{if(session?.user&&tab!=='Início')loadData(session.user.id)},[tab,session,loadData]);
