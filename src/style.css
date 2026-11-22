@@ -236,3 +236,5 @@ main{padding:20px!important}
 .admin-shell .admin-reward-control input{width:100px;padding:8px}
 .admin-shell .admin-review-item .action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}
 .admin-shell .admin-review-item .action-row button{flex:1;min-width:120px}
+
+.app-update-banner{border:1px solid #3e8050;background:#122d1e;padding:16px;border-radius:16px;margin:0 0 18px}.app-update-banner p{color:#d2e4d7;margin:8px 0}.maintenance-screen{position:fixed;inset:0;z-index:9999;background:#06100cf5;display:grid;place-items:center;padding:24px;text-align:center}.maintenance-screen .panel{max-width:440px;padding:28px;border:1px solid #345b40;background:#102219;border-radius:22px}.maintenance-screen h2{margin-top:0}.maintenance-screen p{line-height:1.6;color:#c7d9ce}
