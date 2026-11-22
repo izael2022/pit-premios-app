@@ -21,3 +21,5 @@ Próximas etapas: autenticação segura e integração com API existente, manten
 <!-- Refresh deployment for latest UI updates -->
 
 <!-- Trigger deployment for compact auth layout -->
+
+<!-- Deploy centered authentication form -->
