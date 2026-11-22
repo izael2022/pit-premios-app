@@ -315,3 +315,10 @@ main{padding:20px!important}
 .treasure-modal-result{color:#fff!important;font-weight:800!important;background:rgba(10,60,25,.85)!important;padding:12px!important;border-radius:16px!important;}
 @keyframes treasureFade{from{opacity:0}to{opacity:1}}
 @media(max-width:480px){.treasure-modal{width:100%!important}.treasure-modal-art svg{width:100%!important}.treasure-modal-close{width:74px!important;height:74px!important;font-size:65px!important}}
+
+/* Resultado do baú: destaque claro e animado dentro do modal */
+.chest-revealed{background:radial-gradient(circle at 50% 30%,#68b94d,#153b24 78%)!important;border-color:#c4ff9a!important;box-shadow:0 0 45px #9de66f88,inset 0 0 35px #d0ff9a33!important;animation:chest-result-pop .65s cubic-bezier(.2,.9,.25,1) both!important}
+.chest-reward-display{margin:12px 0 20px;padding:18px 22px;width:100%;border-radius:18px;background:linear-gradient(135deg,#183d28,#0b2015);border:1px solid #9de66f;text-align:center;box-shadow:0 0 25px #9de66f33;animation:chest-result-pop .6s ease both}
+.chest-reward-display strong{display:block;color:#b7f581;font-size:clamp(30px,8vw,42px);font-weight:1000;text-shadow:0 0 18px #9de66f55}
+.chest-reward-display p,.chest-reward-message{color:#d9f4df;font-size:15px;margin:10px 0 0;text-align:center}
+@keyframes chest-result-pop{0%{opacity:0;transform:scale(.7)}70%{transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
