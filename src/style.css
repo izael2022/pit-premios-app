@@ -367,3 +367,18 @@ main{padding:20px!important}
 .treasure-modal-open{position:relative!important;left:auto!important;top:auto!important;width:min(310px,86%)!important;height:60px!important;min-height:60px!important;border-radius:14px!important;background:linear-gradient(#ffcf16,#f3a700)!important;border-bottom:5px solid #c17c00!important;color:#7b4500!important;font-size:23px!important;margin:8px auto 0!important;box-shadow:0 10px 25px #0006!important;}
 .treasure-modal{padding:0 0 12px!important;}
 .treasure-modal-close{position:absolute!important;top:12px!important;right:12px!important;z-index:10!important;}
+
+/* Correção modal bônus: sobreposição, layout e presente */
+.treasure-reference-overlay{position:fixed!important;inset:0!important;z-index:99999!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:12px!important;background:rgba(0,0,0,.9)!important;backdrop-filter:blur(5px)!important;overflow:auto!important}
+.treasure-reference-modal{width:min(430px,calc(100vw - 24px))!important;height:min(660px,calc(100dvh - 24px))!important;min-height:0!important;max-height:calc(100dvh - 24px)!important;flex:0 0 auto!important;box-sizing:border-box!important;padding:22px 16px!important;justify-content:space-between!important;gap:8px!important;overflow:hidden!important;border-radius:24px!important;background:radial-gradient(ellipse at 50% 45%,#162322,#061012 65%,#020807)!important}
+.treasure-reference-close{top:12px!important;right:12px!important;width:32px!important;height:32px!important;font-size:20px!important;line-height:1!important}
+.treasure-reference-title{font-size:clamp(38px,10vw,52px)!important;margin:8px 0 0!important;line-height:1.05!important}
+.treasure-reference-subtitle{margin:0!important;max-width:330px!important}
+.treasure-reference-gift{height:clamp(210px,38dvh,300px)!important;min-height:210px!important;flex:1 1 auto!important;width:100%!important;background:radial-gradient(circle at center,#ffce3620,transparent 68%)!important}
+.gift-box-visual{width:min(68vw,250px)!important;height:220px!important;max-height:220px!important;animation:referenceGiftFloat 2s ease-in-out infinite!important}
+.gift-lid:before,.gift-lid:after{content:none!important;display:none!important}
+.gift-bow{top:-25px!important;left:38%!important;width:64px!important;height:46px!important;border:7px solid #080808!important;border-radius:18px 22px!important;background:#ff3b25!important;z-index:4!important;box-shadow:none!important}
+.gift-bow i,.gift-bow b{width:45px!important;height:38px!important;top:-22px!important;border:7px solid #080808!important;border-radius:75% 20% 75% 20%!important;background:#ff3b25!important}
+.gift-bow i{left:-35px!important;transform:rotate(-32deg)!important}.gift-bow b{right:-35px!important;transform:rotate(62deg)!important}.gift-bow span{width:22px!important;height:22px!important;left:14px!important;top:5px!important;background:#ffcf00!important;border:4px solid #080808!important}
+.treasure-reference-caption{margin:0!important}.treasure-reference-action{flex:0 0 auto!important;width:min(310px,90%)!important;margin:0 auto!important}
+@media(max-height:620px){.treasure-reference-modal{height:calc(100dvh - 16px)!important;padding:10px!important}.treasure-reference-gift{min-height:160px!important}.gift-box-visual{height:180px!important}.treasure-reference-title{font-size:36px!important}}
