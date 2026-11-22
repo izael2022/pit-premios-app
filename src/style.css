@@ -296,3 +296,19 @@ main{padding:20px!important}
 .treasure-open{min-height:60px!important;font-size:18px!important;font-weight:800!important;border-radius:18px!important;max-width:100%!important;}
 @keyframes treasureFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
 @keyframes treasurePulse{0%,100%{filter:drop-shadow(0 0 12px rgba(105,238,74,.25))}50%{filter:drop-shadow(0 0 24px rgba(105,238,74,.55))}}
+
+/* Tesouro em popup como referência enviada */
+.treasure-modal-overlay{position:fixed!important;inset:0!important;z-index:99999!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:16px!important;background:rgba(0,0,0,.82)!important;backdrop-filter:blur(2px)!important;animation:treasureFade .25s ease-out!important;}
+.treasure-modal{width:min(100%,560px)!important;max-height:96dvh!important;display:flex!important;flex-direction:column!important;align-items:center!important;position:relative!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0 0 54px!important;overflow:visible!important;}
+.treasure-modal-heading{font-size:clamp(24px,6vw,42px)!important;line-height:1.2!important;color:#fff!important;text-align:center!important;text-shadow:0 2px 8px #000!important;margin:0 0 8px!important;font-weight:500!important;}
+.treasure-modal-art{width:100%!important;max-height:65dvh!important;display:flex!important;justify-content:center!important;animation:treasureFloat 3s ease-in-out infinite!important;}
+.treasure-modal-art svg{width:100%!important;max-width:560px!important;max-height:65dvh!important;object-fit:contain!important;}
+.treasure-modal-open{position:absolute!important;left:23%!important;right:23%!important;width:54%!important;top:72%!important;z-index:2!important;height:clamp(64px,12vw,110px)!important;opacity:0!important;cursor:pointer!important;}
+.treasure-modal-art{pointer-events:none!important;}
+.treasure-modal-open{opacity:1!important;top:72%!important;background:transparent!important;color:transparent!important;border:0!important;box-shadow:none!important;}
+.treasure-modal-open::after{content:'Abrir'!important;position:absolute!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;border-radius:20px!important;background:#fff6cb!important;color:#d93e50!important;font-size:clamp(25px,6vw,44px)!important;font-weight:900!important;}
+.treasure-modal-close{position:absolute!important;bottom:0!important;left:50%!important;transform:translateX(-50%)!important;width:84px!important;height:84px!important;border-radius:50%!important;border:7px solid white!important;background:rgba(0,0,0,.25)!important;color:#fff!important;font-size:74px!important;line-height:.65!important;display:flex!important;align-items:center!important;justify-content:center!important;cursor:pointer!important;z-index:4!important;}
+.treasure-modal-close span{margin-top:-5px!important;}
+.treasure-modal-result{color:#fff!important;font-weight:800!important;background:rgba(10,60,25,.85)!important;padding:12px!important;border-radius:16px!important;}
+@keyframes treasureFade{from{opacity:0}to{opacity:1}}
+@media(max-width:480px){.treasure-modal{width:100%!important}.treasure-modal-art svg{width:100%!important}.treasure-modal-close{width:74px!important;height:74px!important;font-size:65px!important}}
