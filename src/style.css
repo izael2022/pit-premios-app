@@ -62,3 +62,51 @@ main{padding:24px clamp(16px,3vw,30px)}
 .bottom{max-width:980px;left:50%;transform:translateX(-50%);width:100%;border-radius:20px 20px 0 0}
 @media(max-width:700px){.shell{max-width:480px}main{padding:18px 16px}.games-section .game-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.game-card{padding:16px;min-height:215px}.dashboard-rewards-grid{grid-template-columns:1fr;gap:24px}.calendar-panel,.streak-panel{padding:16px}.calendar-day{min-height:55px}.quick button{padding:14px}.bottom{max-width:480px}}
 @media(max-width:390px){.games-section .game-grid{grid-template-columns:1fr}.game-card{min-height:unset}.game-card p{min-height:unset}}
+
+/* PIT PRÊMIOS — refined rewards dashboard, inspired by modern loyalty apps */
+:root{--surface:#0d1713;--surface2:#111f18;--line:#20362a;--muted:#91a69a;--accent:#9ce66f}
+body{background:#050b08;color:#f4f8f5}
+.shell{max-width:520px;background:#080f0b;box-shadow:0 0 60px #0006;padding-bottom:90px}
+header{height:68px;padding:14px 20px;background:#080f0b;border-bottom:1px solid #14231a}
+main{padding:18px 18px 28px}
+.hero{border:1px solid #284534;border-radius:22px;padding:20px 22px;background:linear-gradient(135deg,#142d20,#0d1b13 72%);box-shadow:none}
+.balance-label{margin-top:18px}.hero h1{font-size:36px}
+.progress{margin-top:16px}
+.games-section .game-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.game-card{border:1px solid #213a2c;background:#101a14;border-radius:18px;padding:16px;min-height:190px;box-shadow:none}
+.game-card h3{font-size:15px;margin:8px 0}.game-card p{font-size:11px;line-height:1.5;min-height:34px}
+.game-icon{width:42px;height:42px;border-radius:14px;background:#1b3324}
+.game-card .primary{min-height:42px;margin-top:auto;border-radius:12px;font-size:12px;padding:11px}
+.dashboard-rewards-grid{display:flex;flex-direction:column;gap:16px;margin-top:22px}
+.dashboard-rewards-grid .section{width:100%;margin:0}
+.section-head{margin-bottom:10px}.section-head h2{font-size:17px;margin-top:4px}
+.calendar-panel,.streak-panel{border:1px solid #203a2a;background:#0e1913;border-radius:18px;padding:15px}
+.calendar-month{font-size:14px;margin:0 0 12px;text-align:center}
+.calendar-week{font-size:9px;color:#7f9989;letter-spacing:.5px}
+.calendar-days{gap:5px}
+.calendar-day{height:44px;min-height:44px;border-radius:10px;background:#0a130e;border:1px solid #20382a;padding:4px;gap:1px}
+.calendar-day b{font-size:11px}.calendar-day small{font-size:8px;line-height:1.1}
+.calendar-day svg{display:none}
+.calendar-day.today{border:1px solid #9ce66f;box-shadow:0 0 0 1px #9ce66f22}
+.calendar-day.claimed{background:#14271b;border-color:#315a3a}
+.calendar-legend{font-size:9px;margin:8px 0}
+.calendar-panel>p{font-size:10px;line-height:1.5;margin:9px 0;color:#91a69a}
+.calendar-panel .primary{margin-top:8px;min-height:44px;font-size:12px}
+.streak-section .section-head h2{font-size:17px}
+.streak-progress{margin-bottom:12px}.streak-progress strong{font-size:15px}
+.streak-progress span{font-size:10px;color:#9aaf9f}
+.streak-circles{gap:5px}
+.streak-circle{height:54px;border-radius:12px;flex:1;min-width:0}
+.streak-circle b{font-size:13px}.streak-circle small{font-size:8px}
+.streak-panel p{font-size:10px;line-height:1.5;margin:12px 0}
+.streak-panel .primary{min-height:44px;margin-top:6px;font-size:12px}
+.quick{margin:18px 0 22px;gap:10px}
+.quick button{border:1px solid #20372a;background:#101a14;border-radius:16px;padding:14px;min-height:90px;box-shadow:none}
+.quick button svg{width:20px;height:20px}.quick button b{font-size:12px}.quick button small{font-size:9px}
+.mission{background:#0e1913;border-color:#20382a;border-radius:15px}
+.event{background:#101a14;border-color:#20382a;border-radius:16px}
+.safe{font-size:9px}
+.bottom{max-width:520px;background:#080f0b;border-top:1px solid #18291f;padding:10px 5px max(10px,env(safe-area-inset-bottom))}
+.bottom button{font-size:9px;padding:5px 7px;gap:4px}.bottom button svg{width:19px;height:19px}
+@media(min-width:700px){.shell{max-width:520px}.bottom{position:fixed;width:min(520px,100%);left:50%;transform:translateX(-50%)}}
+@media(max-width:400px){main{padding:14px}.calendar-day{height:40px;min-height:40px}.calendar-day small{font-size:7px}.game-card{min-height:175px;padding:13px}}
