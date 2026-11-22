@@ -63,46 +63,32 @@ function App(){
  const levelSteps=[0,10000,25000,50000,100000,250000],levelNow=Math.max(1,levelSteps.filter(x=>balance>=x).length),levelFloor=levelSteps[Math.min(levelNow-1,levelSteps.length-1)],levelNext=levelSteps[levelNow]??500000,levelPct=Math.max(0,Math.min(100,(balance-levelFloor)/(levelNext-levelFloor)*100));
  const achievements=[{title:'Primeiro passo',desc:'Conclua sua primeira missão.',progress:Math.min(approvedMissionCount,1),goal:1,icon:'🎯'},{title:'Missionário',desc:'Conclua 5 missões aprovadas.',progress:Math.min(approvedMissionCount,5),goal:5,icon:'🏅'},{title:'Convite de sucesso',desc:'Tenha 1 indicação qualificada.',progress:Math.min(qualifiedReferralCount,1),goal:1,icon:'🤝'},{title:'Constância',desc:'Complete a sequência de 7 dias.',progress:Math.min(streakDays,7),goal:7,icon:'🔥'}];
  const homeView = <>
-    <section className="hero">
-      <div className="hero-top">
-        <span className="eyebrow"><Flame size={14}/> PAINEL DO PARTICIPANTE</span>
-        <span className="level">NÍVEL {levelNow}</span>
-      </div>
-      <p className="balance-label">Seu saldo</p>
-      <h1>{fmt(balance)} <span>PTS</span></h1>
-      <div className="balance-foot"><span>Saldo real do banco</span><span className="trend"><ArrowUpRight size={15}/></span></div>
-      <div className="progress"><span style={{width: Math.min(100, (balance % 10000) / 10000 * 100) + '%'}}/></div>
-      <div className="progress-caption"><span>Progresso da meta de 10.000</span><b>{fmt(balance % 10000)} / 10.000</b></div>
-      <div className="hero-glow"/>
-    </section>
-<section className="section games-section"><div className="section-head"><div><span className="eyebrow">RECOMPENSAS DIÁRIAS</span><h2>Ganhe pontos extras</h2></div></div><div className="game-grid"><article className="game-card"><div className="game-icon"><Trophy/></div><h3>Roleta diária</h3><p>Gire e tente ganhar até 2.000 pontos.</p><button className="primary" disabled={busy||claimedToday('wheel')} onClick={()=>setWheelOpen(true)}>{claimedToday('wheel')?'Já resgatada hoje':'Abrir roleta'}</button></article><article className="game-card"><div className="game-icon"><Box/></div><h3>Baú diário</h3><p>Abra seu baú e receba uma recompensa.</p><button className="primary" disabled={busy||claimedToday('chest')} onClick={()=>setChestOpen(true)}>{claimedToday('chest')?'Já aberto hoje':'Abrir baú'}</button></article><article className="game-card"><div className="game-icon"><CalendarDays/></div><h3>Calendário mensal</h3><p>Resgate o bônus do dia.</p><button className="primary" disabled={busy||claimedToday('calendar')} onClick={()=>claimCalendar()}>{claimedToday('calendar')?'Bônus de hoje resgatado':'Resgatar bônus'}</button></article></div></section>
-    <div className="dashboard-rewards-grid"><section className="section monthly-calendar"><div className="section-head"><div><span className="eyebrow">PROGRESSO DO MÊS</span><h2>Calendário de bônus</h2></div></div><div className="panel calendar-panel"><div className="calendar-month">{monthLabel}</div><div className="calendar-week">{['SEG','TER','QUA','QUI','SEX','SÁB','DOM'].map(d=><span key={d}>{d}</span>)}</div><div className="calendar-days">{Array.from({length:calendarOffset},(_,i)=><div className="calendar-empty" key={'e'+i}/>) }{Array.from({length:calendarDays},(_,i)=>{const day=i+1,claimed=calendarClaimed.has(day),today=day===calendarDay;return <div key={day} className={'calendar-day'+(claimed?' claimed':'')+(today?' today':'')}><b>{day}</b><small>{fmt(calendarCellRewards(day))}</small>{claimed&&<CheckCircle2 size={13}/>}</div>})}</div><div className="calendar-legend"><span><i className="legend-claimed"/> Resgatado</span><span><i className="legend-today"/> Hoje</span></div><p>Recompensas conforme o dia do mês. O bônus pode ser resgatado uma vez por dia.</p><button className="primary" disabled={busy||claimedToday('calendar')} onClick={claimCalendar}>{claimedToday('calendar')?'Bônus de hoje resgatado':'Resgatar bônus de hoje · '+fmt(calendarCellRewards(calendarDay))+' pts'}</button></div></section>
-<section className="section streak-section"><div className="section-head"><div><span className="eyebrow">DESAFIO DE CONSTÂNCIA</span><h2>Sequência de 7 dias</h2></div></div><div className="panel streak-panel"><div className="streak-progress"><strong>{streakDays}/7 dias</strong><span>+1.000 pontos de bônus</span></div><div className="streak-circles">{Array.from({length:7},(_,i)=><div key={i} className={"streak-circle"+(i<streakDays?" done":"")}><b>{i+1}</b><small>{i<streakDays?"✓":"dia"}</small></div>)}</div><p>{streakAvailable?"Você completou 7 dias consecutivos! Resgate seu bônus extra.":"Resgate o calendário diariamente por 7 dias consecutivos para desbloquear 1.000 pontos extras."}</p><button className="primary" disabled={busy||!streakAvailable||streakClaimed} onClick={claimStreak}>{streakClaimed?"Bônus da sequência resgatado":streakAvailable?"Resgatar bônus de 1.000 pontos":"Sequência em andamento"}</button></div></section>
-    </div>
-    <section className="quick">
-      <button onClick={() => setTab('Missões')}><CalendarCheck/><b>Missões</b><small>Confira as oportunidades</small></button>
-      <button onClick={() => setTab('Convites')}><Users/><b>Indique amigos</b><small>Convide e acumule</small></button>
-    </section>
-    <section className="section">
-      <div className="section-head">
-        <div><span className="eyebrow">OPORTUNIDADES</span><h2>Missões para você</h2></div>
-        <button className="text-btn" onClick={() => setTab('Missões')}>Ver todas <ChevronRight size={16}/></button>
-      </div>
-      {missions.slice(0, 2).map(m => <article className="mission" key={m.id}>
-        <div className="mission-icon"><Target size={20}/></div>
-        <div className="mission-info"><strong>{m.title}</strong><p>{m.description}</p></div>
-        <div className="reward">+{fmt(m.reward_points)} pts</div>
-      </article>)}
-      {missions.length === 0 && <div className="event"><div><h3>Nenhuma missão publicada</h3><p>As missões aparecerão aqui.</p></div></div>}
-    </section>
-    <section className="event">
-      <div className="event-icon"><Gift size={20}/></div>
-      <div><span className="eyebrow">PIT EVENTOS</span><h3>Novidades e desafios</h3><p>Fique atento às próximas campanhas.</p></div>
-      <ChevronRight/>
-    </section>
-    <section className="safe"><ShieldCheck size={18}/><span>Saldo e recompensas são registrados no banco.</span></section>
-  </>;
- 
+ <section className="pit-hero-reference">
+   <div className="pit-balance-copy"><span>Seus Pontos</span><h1>{fmt(balance)} <em>pts</em></h1><div className="pit-money">≈ R$ {(balance/1000).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})} <span title="Conversão ilustrativa de pontos">ⓘ</span></div></div>
+   <div className="pit-coin-art" aria-hidden="true"><div className="coin-stack stack-one"/><div className="coin-stack stack-two"/><div className="pit-coin">P</div></div>
+   <button className="pit-redeem-cta" onClick={()=>setTab('Carteira')}><Gift size={30}/> <span>Resgatar Prêmios</span><ChevronRight size={28}/></button>
+ </section>
+ <section className="pit-daily-games">
+  <button className="pit-game-tile" onClick={()=>setWheelOpen(true)} disabled={busy||claimedToday('wheel')}><span className="pit-game-symbol wheel-symbol">◉</span><span className="pit-game-copy"><strong>Roleta Diária</strong><small>Gire e ganhe até 2.000 pontos!</small></span><ChevronRight/></button>
+  <button className="pit-game-tile" onClick={()=>setChestOpen(true)} disabled={busy||claimedToday('chest')}><span className="pit-game-symbol chest-symbol"><Box size={42}/></span><span className="pit-game-copy"><strong>Baú Diário</strong><small>Abra e receba recompensas!</small></span><ChevronRight/></button>
+ </section>
+ <section className="pit-compact-calendar">
+  <div className="pit-section-title"><CalendarDays size={35}/><div><strong>Calendário de Bônus</strong><small>Resgate seu bônus diário e acumule pontos.</small></div></div>
+  <div className="pit-calendar-month">{monthLabel}</div>
+  <div className="pit-week-grid">{['SEG','TER','QUA','QUI','SEX','SÁB','DOM'].map((d,i)=><span key={d} className="pit-weekday">{d}</span>)}{Array.from({length:7},(_,i)=>{const d=Math.max(1,calendarDay-6+i);const claimed=calendarClaimed.has(d);const today=d===calendarDay;return <div key={i} className={'pit-weekday-cell'+(claimed?' checked':'')+(today?' today':'')}><b>{d}</b>{claimed?<CheckCircle2 size={18}/>:today?<Gift size={18}/>:<small>{fmt(calendarCellRewards(d))}</small>}</div>})}</div>
+  <button className="pit-calendar-claim" disabled={busy||claimedToday('calendar')} onClick={claimCalendar}>{claimedToday('calendar')?'Bônus de hoje resgatado':'Resgatar bônus · '+fmt(calendarCellRewards(calendarDay))+' pts'}</button>
+ </section>
+ <section className="pit-streak">
+  <div className="pit-streak-heading"><Flame size={34}/><div><strong>Sequência de 7 Dias</strong><small>Mantenha o hábito e ganhe um bônus extra!</small></div><b>{streakDays}/7 <small>dias</small></b></div>
+  <div className="pit-streak-days">{Array.from({length:7},(_,i)=><div key={i} className={i<streakDays?'done':''}><b>{i+1}</b>{i<streakDays?<CheckCircle2 size={20}/>:<span className="lock-dot">🔒</span>}</div>)}</div>
+  <div className="pit-streak-bar"><span style={{width:Math.min(100,streakDays/7*100)+'%'}}/></div>
+  <button className="pit-streak-claim" disabled={busy||!streakAvailable||streakClaimed} onClick={claimStreak}>{streakClaimed?'Bônus resgatado':streakAvailable?'Resgatar bônus de 1.000 pontos':'Continue resgatando seu bônus diário'}</button>
+ </section>
+ <section className="pit-home-shortcuts"><button onClick={()=>setTab('Missões')}><CalendarCheck/><b>Missões</b></button><button onClick={()=>setTab('Convites')}><Users/><b>Convites</b></button></section>
+ <section className="pit-home-missions"><div className="section-head"><div><span className="eyebrow">OPORTUNIDADES</span><h2>Missões para você</h2></div><button className="text-btn" onClick={()=>setTab('Missões')}>Ver todas <ChevronRight size={16}/></button></div>{missions.slice(0,2).map(m=><article className="mission" key={m.id}><div className="mission-icon"><Target size={20}/></div><div className="mission-info"><strong>{m.title}</strong><p>{m.description}</p></div><div className="reward">+{fmt(m.reward_points)} pts</div></article>)}{missions.length===0&&<div className="event"><h3>Nenhuma missão publicada</h3><p>As missões aparecerão aqui.</p></div>}</section>
+ <section className="event"><div className="event-icon"><Gift size={20}/></div><div><span className="eyebrow">PIT EVENTOS</span><h3>Novidades e desafios</h3><p>Fique atento às próximas campanhas.</p></div><ChevronRight/></section>
+ <section className="safe"><ShieldCheck size={18}/><span>Saldo e recompensas são registrados no banco.</span></section>
+ </>;
  const profileView=<section className="section profile-view"><div className="profile-hero"><div className="profile-avatar">{(profile?.display_name||session.user.email||'P').trim().slice(0,1).toUpperCase()}</div><span className="eyebrow">MINHA CONTA</span><h2>{profile?.display_name||'Participante PIT'}</h2><p>{session.user.email}</p><div className="profile-level">NÍVEL {levelNow}</div></div><div className="profile-stats"><div className="panel"><b>{fmt(balance)}</b><small>Pontos acumulados</small></div><div className="panel"><b>{approvedMissionCount}</b><small>Missões aprovadas</small></div><div className="panel"><b>{qualifiedReferralCount}</b><small>Convites qualificados</small></div><div className="panel"><b>{streakDays}/7</b><small>Sequência diária</small></div></div><div className="panel profile-details"><h3>Dados da conta</h3><div><span>Nome</span><b>{profile?.display_name||'Participante'}</b></div><div><span>E-mail</span><b>{session.user.email}</b></div><div><span>Seu nível</span><b>Nível {levelNow}</b></div><div><span>Saldo</span><b>{fmt(balance)} pontos</b></div></div><button className="profile-logout" onClick={()=>supabase.auth.signOut()}><LogOut size={17}/> Sair da conta</button></section>;
 
  return <div className="shell"><header><div className="brand"><div className="logo">P</div><div><strong>PIT <span>PRÊMIOS</span></strong><small>SEU ESFORÇO VALE RECOMPENSAS</small></div></div><button className="bell" onClick={()=>setTab('Notificações')} aria-label="Notificações"><Bell size={19}/>{notifications.some(n=>!n.read_at)&&<i/>}</button></header><main>{message&&<div className="auth-msg app-message"><AlertCircle size={16}/>{message}</div>}{tab==='Início'?homeView:tab==='Missões'?missionView:tab==='Convites'?inviteView:tab==='Carteira'?walletView:tab==='Notificações'?notifView :profileView}</main><nav className="bottom">{nav.map(([name,Icon])=><button key={name} className={tab===name?'active':''} onClick={()=>setTab(name)}><Icon size={20}/><span>{name}</span></button>)}</nav>{wheelOpen&&<div className="wheel-overlay" role="dialog" aria-modal="true"><div className="wheel-modal"><button className="wheel-close" onClick={()=>{if(!wheelSpinning)setWheelOpen(false)}} disabled={wheelSpinning}>×</button><span className="eyebrow">RECOMPENSA</span><h2>Roleta PIT PRÊMIOS</h2><div className="wheel-pointer">▼</div><div className={"wheel-disc"+(wheelSpinning?" spinning":"")}><div className="wheel-labels"><span>100</span><span>500</span><span>1.000</span><span>2.000</span><span>300</span><span>750</span><span>1.500</span><span>200</span></div><div className="wheel-center">P</div></div><p>{wheelSpinning?"Girando...":"Toque no botão abaixo para girar."}</p><button className="primary wheel-spin-btn" disabled={busy} onClick={spinWheel}>{wheelSpinning?"Girando...":"GIRAR AGORA"}</button></div></div>}{chestOpen&&<div className="wheel-overlay" role="dialog" aria-modal="true"><div className="wheel-modal chest-modal"><button className="wheel-close" onClick={()=>{if(!chestOpening)setChestOpen(false)}} disabled={chestOpening}>×</button><span className="eyebrow">RECOMPENSA</span><h2>Baú diário</h2><div className={"chest-visual"+(chestOpening?" chest-opening":"")}><div className="chest-points-badge">{chestOpening?"✨ GANHANDO PONTOS":"100–1.000 PTS"}</div><span className="chest-emoji">{chestOpening?"✨":"🎁"}</span><div className="chest-sparkles">✦　✧　✦</div></div><p>{chestOpening?"Abrindo seu baú...":"O baú está fechado! Aperte para abrir e receber sua recompensa."}</p><button className="primary wheel-spin-btn" disabled={busy} onClick={openChest}>{chestOpening?"Abrindo...":"ABRIR BAÚ"}</button></div></div>}</div>;
