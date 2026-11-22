@@ -212,3 +212,12 @@ main{padding:20px!important}
 .admin-shell .panel>h3{margin-top:0}
 .admin-shell .admin-logout{margin-top:24px}
 @media(max-width:420px){.admin-shell .admin-metric-grid{gap:8px}.admin-shell .admin-metric-card{min-height:94px;padding:12px}.admin-shell .admin-metric-card b{font-size:23px}}
+
+/* Admin mission management controls */
+.admin-shell .admin-mission-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px;margin-bottom:10px;border:1px solid #254b36;border-radius:15px;background:#0d1b13}
+.admin-shell .admin-mission-info{flex:1;min-width:150px;display:flex;flex-direction:column;gap:5px}
+.admin-shell .admin-mission-info small{font-size:11px;color:#a4b9ab}
+.admin-shell .admin-mission-actions{display:flex;gap:8px;flex-wrap:wrap}
+.admin-shell .admin-mission-actions button,.admin-shell .admin-secondary{border-radius:10px;padding:9px 12px;font-size:11px;font-weight:700;cursor:pointer}
+.admin-shell .admin-secondary{background:#183525;color:#dceee1;border:1px solid #315941}
+.admin-shell .admin-mission-actions button:disabled{opacity:.5;cursor:wait}
