@@ -149,3 +149,5 @@ main{padding:20px!important}
 .pit-game-copy small{font-size:11px!important;line-height:1.35!important}
 .pit-game-tile>svg:last-child{width:16px!important;flex:0 0 16px!important}
 @media(min-width:600px){.shell{max-width:520px!important;width:520px!important}.bottom{max-width:520px!important;width:520px!important}}
+
+.admin-review-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid rgba(120,170,150,.18);flex-wrap:wrap}.admin-review-row>div:first-child{min-width:0;flex:1}.admin-review-row small,.admin-review-row a{display:block;margin-top:6px;overflow-wrap:anywhere}.admin-actions{display:flex;gap:8px;flex-wrap:wrap}.admin-actions button{padding:9px 12px!important;font-size:13px!important}.admin-review-row a{color:#9de66f}.section textarea{width:100%;resize:vertical}.section input[type=checkbox]{width:auto;display:inline-block}
