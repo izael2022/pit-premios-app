@@ -151,3 +151,29 @@ main{padding:20px!important}
 @media(min-width:600px){.shell{max-width:520px!important;width:520px!important}.bottom{max-width:520px!important;width:520px!important}}
 
 .admin-review-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid rgba(120,170,150,.18);flex-wrap:wrap}.admin-review-row>div:first-child{min-width:0;flex:1}.admin-review-row small,.admin-review-row a{display:block;margin-top:6px;overflow-wrap:anywhere}.admin-actions{display:flex;gap:8px;flex-wrap:wrap}.admin-actions button{padding:9px 12px!important;font-size:13px!important}.admin-review-row a{color:#9de66f}.section textarea{width:100%;resize:vertical}.section input[type=checkbox]{width:auto;display:inline-block}
+
+/* Unified administrator dashboard visual, consistent with participant app */
+.admin-dashboard{display:flex;flex-direction:column;gap:14px}
+.admin-top-card{border:1px solid #294a38;background:linear-gradient(145deg,#173b28,#0d2117);border-radius:22px;padding:20px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;box-shadow:0 12px 28px #0002}
+.admin-top-card h2{font-size:22px;margin:7px 0 8px;letter-spacing:-.5px}
+.admin-top-card p{font-size:11px;line-height:1.5;color:#9ab4a2;margin:0}
+.admin-refresh{display:flex;align-items:center;gap:6px;flex-shrink:0;background:#10291c;border:1px solid #365943;border-radius:12px;color:#a5e87c;padding:10px;font-size:11px;font-weight:700}
+.admin-metrics{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:0!important}
+.admin-metrics>div{border:1px solid #254432;background:linear-gradient(145deg,#142a1c,#0c1912);border-radius:16px;padding:15px 10px!important;text-align:center;display:flex;flex-direction:column;gap:6px}
+.admin-metrics b{font-size:24px;color:#a0e875}
+.admin-metrics small{font-size:10px;color:#91a899;line-height:1.35}
+.admin-card{margin:0!important;border-radius:20px!important;padding:18px!important;background:linear-gradient(145deg,#112319,#0b1711)!important;border-color:#274433!important}
+.admin-card-heading{display:flex;align-items:center;gap:11px;margin-bottom:15px}
+.admin-card-heading>div{flex:1;min-width:0}
+.admin-card-heading h3{margin:0!important;font-size:15px!important}
+.admin-card-heading small{display:block;color:#89a392;font-size:10px;margin-top:5px;line-height:1.4}
+.admin-icon{width:42px;height:42px;border-radius:14px;background:#1b3825;color:#9de66f;display:grid;place-items:center;flex-shrink:0}
+.admin-count{border:1px solid #31583a;background:#173323;color:#a3e879;border-radius:20px;padding:5px 10px;font-weight:800;font-size:12px}
+.admin-dashboard .panel input,.admin-dashboard .panel textarea{margin-top:2px}
+.admin-dashboard .primary{width:100%;min-height:44px}
+.admin-dashboard .admin-actions .primary,.admin-dashboard .admin-actions .secondary{width:auto}
+.admin-dashboard .secondary{border:1px solid #395340;background:#16251b;color:#c5d9ca;border-radius:12px;padding:9px 12px;font-weight:700}
+.admin-review-row{background:#0a1710;border:1px solid #1f3829;border-radius:15px;padding:13px;margin:10px 0!important}
+.admin-review-row:last-child{margin-bottom:0!important}
+.admin-review-row strong{font-size:12px}
+@media(max-width:380px){.admin-metrics b{font-size:20px}.admin-metrics small{font-size:9px}.admin-top-card{padding:16px}.admin-refresh{padding:8px}}
