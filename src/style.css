@@ -254,3 +254,21 @@ main{padding:20px!important}
 @keyframes auth-layout-in{from{opacity:0;transform:translateY(20px) scale(.985)}to{opacity:1;transform:none}}@keyframes auth-form-in{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}@keyframes auth-field-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@keyframes auth-coin-float{50%{transform:translateY(-9px) rotate(3deg)}}@keyframes auth-coin-back{50%{transform:translate(-38px,12px) rotate(-23deg)}}@keyframes auth-coin-mid{50%{transform:translate(34px,-17px) rotate(17deg)}}@keyframes auth-star{0%,100%{opacity:.4;transform:scale(.75)}50%{opacity:1;transform:scale(1.15)}}@keyframes auth-blobfloat{50%{transform:translate(35px,25px) scale(1.1)}}@keyframes auth-grid-drift{to{background-position:42px 84px}}@keyframes auth-spin{to{transform:rotate(360deg)}}
 @media(max-width:760px){.auth-wrap.auth-modern{padding:15px}.auth-layout{grid-template-columns:1fr;min-height:unset;width:min(100%,480px);border-radius:25px}.auth-showcase{padding:22px 25px 18px;border-right:0;border-bottom:1px solid #ffffff0c;min-height:230px}.auth-showcase-content{margin:20px 0 10px}.auth-coin-stack{height:105px;width:130px;margin:0 auto 12px}.auth-coin{width:70px;height:70px;border-radius:23px;font-size:28px}.auth-showcase-content h1{font-size:27px;margin:9px 0}.auth-showcase-content>p{font-size:11px;margin:8px 0}.auth-feature-row{display:none}.auth-showcase-foot{display:none}.auth-form-side{padding:27px 25px 25px}.auth-card-modern .auth-card-heading h2{font-size:24px}.auth-mobile-brand{display:block;margin-top:17px;color:#708a79;font-size:9px;letter-spacing:.6px}.auth-mobile-brand b{color:#a4ed78}}
 @media(prefers-reduced-motion:reduce){.auth-modern *,.auth-modern .auth-backdrop *{animation:none!important;transition:none!important}}
+
+/* Compact login dimensions to better match the app viewport */
+.auth-wrap.auth-modern{padding:18px;min-height:100dvh}
+.auth-layout{width:min(100%,920px);min-height:0;height:min(650px,calc(100dvh - 36px));max-height:650px;grid-template-columns:0.94fr 1.06fr}
+.auth-showcase{padding:28px 32px}
+.auth-coin-stack{height:145px;width:175px;margin:0 0 18px 4px}
+.auth-coin{width:96px;height:96px;border-radius:30px}
+.auth-showcase-content h1{font-size:clamp(28px,3.2vw,38px);margin:10px 0}
+.auth-feature-row{gap:9px;margin-top:20px}.auth-feature{padding:10px 12px;min-width:86px}
+.auth-form-side{padding:26px 34px}
+.auth-card-modern{max-width:360px}
+.auth-card-heading{margin-bottom:20px}.auth-welcome-icon{width:40px;height:40px;margin-bottom:15px}
+.auth-card-modern .auth-card-heading h2{font-size:25px}
+.auth-field{margin-bottom:14px;gap:7px}.auth-field input{min-height:45px;padding:11px 14px}
+.auth-submit-modern{min-height:47px}
+.auth-switch-wrap{margin-top:17px}.auth-security{margin-top:19px;padding-top:14px}
+@media(max-height:700px) and (min-width:761px){.auth-layout{height:calc(100dvh - 24px);max-height:610px}.auth-showcase,.auth-form-side{padding-top:20px;padding-bottom:20px}.auth-coin-stack{height:115px}.auth-showcase-content h1{font-size:30px}.auth-feature-row{margin-top:15px}.auth-field{margin-bottom:11px}.auth-card-heading{margin-bottom:15px}.auth-security{margin-top:13px}}
+@media(max-width:760px){.auth-layout{height:auto;max-height:none;min-height:unset;width:min(100%,460px);grid-template-columns:1fr}.auth-showcase{padding:22px 25px 18px}.auth-form-side{padding:27px 25px 25px}}
