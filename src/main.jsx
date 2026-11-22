@@ -7,6 +7,7 @@ import{supabase}from'./lib/supabase';
 const fmt=n=>Number(n||0).toLocaleString('pt-BR');
 const cash=n=>Number(n||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 const statusText=s=>({pending:'Em análise',approved:'Aprovada',qualified:'Qualificada',rejected:'Rejeitada',paid:'Pago',published:'Publicada',draft:'Rascunho'}[s]||s);
+async function fetchAllLedger(uid){let rows=[],from=0;const pageSize=1000;while(true){const q=await supabase.from('points_ledger').select('*').eq('user_id',uid).order('created_at',{ascending:false}).range(from,from+pageSize-1);if(q.error)return q;rows=rows.concat(q.data||[]);if(!q.data||q.data.length<pageSize)break;from+=pageSize;}return {data:rows,error:null};}
 function AuthScreen(){
  const[mode,setMode]=useState('login'),[name,setName]=useState(''),[email,setEmail]=useState(''),[password,setPassword]=useState(''),[refCode,setRefCode]=useState(new URLSearchParams(location.search).get('ref')||''),[busy,setBusy]=useState(false),[msg,setMsg]=useState('');
  async function submit(e){e.preventDefault();setBusy(true);setMsg('');try{if(mode==='signup'){const{data,error}=await supabase.auth.signUp({email,password,options:{data:{name,referral_code:refCode.trim().toUpperCase()||null}}});if(error)throw error;setMsg(data.session?'Cadastro realizado!':'Cadastro realizado. Confira seu e-mail para confirmar.');}else{const{error}=await supabase.auth.signInWithPassword({email,password});if(error)throw error;}}catch(err){setMsg(err.message||'Não foi possível concluir.');}finally{setBusy(false)}}
@@ -20,7 +21,7 @@ function App(){
  const a=await supabase.from('admins').select('user_id').eq('user_id',uid).maybeSingle();const isAdmin=!a.error&&!!a.data;
  const[p,l,m,s,r,w,g,n,st]=await Promise.all([
  supabase.from('profiles').select('*').eq('id',uid).maybeSingle(),
- supabase.from('points_ledger').select('*').eq('user_id',uid).order('created_at',{ascending:false}),
+ fetchAllLedger(uid),
  supabase.from('missions').select('*').eq('status','published').order('created_at',{ascending:false}),
  isAdmin?supabase.from('mission_submissions').select('*').order('created_at',{ascending:false}):supabase.from('mission_submissions').select('*').eq('user_id',uid).order('created_at',{ascending:false}),
  isAdmin?supabase.from('referrals').select('*').order('created_at',{ascending:false}):supabase.from('referrals').select('*').eq('referrer_id',uid).order('created_at',{ascending:false}),
