@@ -221,3 +221,18 @@ main{padding:20px!important}
 .admin-shell .admin-mission-actions button,.admin-shell .admin-secondary{border-radius:10px;padding:9px 12px;font-size:11px;font-weight:700;cursor:pointer}
 .admin-shell .admin-secondary{background:#183525;color:#dceee1;border:1px solid #315941}
 .admin-shell .admin-mission-actions button:disabled{opacity:.5;cursor:wait}
+
+/* Admin review modules: unified search, status filters and record detail */
+.admin-shell .admin-global-search{display:flex;gap:8px;margin:10px 0 16px}
+.admin-shell .admin-global-search input{flex:1;min-width:0}
+.admin-shell .admin-review-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:12px 0 16px;color:#a5c0ad;font-size:12px}
+.admin-shell .admin-review-toolbar select{background:#102219;border:1px solid #2b513a;border-radius:10px;color:#e6f3e9;padding:9px}
+.admin-shell .admin-review-item{padding:14px;margin:10px 0;border:1px solid #254b36;border-radius:15px;background:linear-gradient(145deg,#12271a,#0b1711);display:flex;flex-direction:column;gap:8px}
+.admin-shell .admin-review-item small{color:#a5b9aa;overflow-wrap:anywhere}
+.admin-shell .admin-review-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.admin-shell .admin-proof-link{display:inline-flex;align-self:flex-start;padding:9px 12px;border:1px solid #365d44;border-radius:10px;color:#9be36b;text-decoration:none;font-size:12px;font-weight:700}
+.admin-shell .admin-pix-box{padding:12px;border:1px solid #36513d;border-radius:12px;background:#07120c;display:flex;flex-direction:column;gap:6px;overflow-wrap:anywhere}
+.admin-shell .admin-reward-control{display:flex;align-items:center;gap:8px;font-size:11px;color:#a5c0ad}
+.admin-shell .admin-reward-control input{width:100px;padding:8px}
+.admin-shell .admin-review-item .action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}
+.admin-shell .admin-review-item .action-row button{flex:1;min-width:120px}
