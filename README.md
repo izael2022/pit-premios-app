@@ -19,3 +19,5 @@ npm run dev
 Próximas etapas: autenticação segura e integração com API existente, mantendo as regras do servidor como fonte de verdade.
 
 <!-- Refresh deployment for latest UI updates -->
+
+<!-- Trigger deployment for compact auth layout -->
