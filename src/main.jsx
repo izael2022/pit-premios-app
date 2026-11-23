@@ -88,6 +88,20 @@ function App(){
    <div className="pit-coin-art" aria-hidden="true"><div className="coin-stack stack-one"/><div className="coin-stack stack-two"/><div className="pit-coin">P</div></div>
    <button className="pit-redeem-cta" onClick={()=>setTab('Carteira')}><Gift size={30}/> <span>Resgatar Prêmios</span><ChevronRight size={28}/></button>
  </section>
+<section className="pit-home-rewards pit-home-rewards-compact">
+  <div className="pit-home-reward-tiles">
+   <button className="pit-home-reward-tile pit-home-wheel-tile" onClick={()=>{setRewardPlayModal('wheel');setRewardPlayStage('ready');setRewardClaimResult('')}}>
+    <span className="pit-home-tile-art"><div className="pit-wheel-disc">✦<span>✦</span><b>✦</b><i>✦</i></div></span><span><strong>Roleta Diária</strong><small>Gire e ganhe pontos!</small></span><ChevronRight size={20}/>
+   </button>
+   <button className="pit-home-reward-tile pit-home-chest-tile" onClick={()=>{setRewardPlayModal('chest');setRewardPlayStage('ready');setRewardClaimResult('')}}>
+    <span className="pit-home-tile-art pit-home-chest-art">🎁</span><span><strong>Baú Diário</strong><small>Abra e receba recompensas!</small></span><ChevronRight size={20}/>
+   </button>
+  </div>
+  <div className="pit-home-surprise-card pit-home-surprise-card-live">
+   <span className="pit-home-surprise-art">🎊</span><div className="pit-home-surprise-content"><strong>Baú Surpresa</strong>{surpriseEvents.length===0?<small>{historyBusy?'Verificando eventos...':'Nenhum evento surpresa ativo neste momento.'}</small>:surpriseEvents.map(ev=>{const claimed=rewardHistory.some(h=>h.system_key==='surprise_chest'&&h.event_id===ev.id);return <div className="pit-home-surprise-event" key={ev.id}><small>Evento especial · Até {new Date(ev.expires_at).toLocaleString('pt-BR')}</small><button className="primary" disabled={claimed||rewardClaimBusy} onClick={()=>claimSurprise(ev.id)}>{claimed?'Recompensa resgatada':rewardClaimBusy?'Processando...':'🎁 Resgatar surpresa'}</button></div>})}</div>
+  </div>
+ </section>
+
  <section className="pit-compact-calendar">
   <div className="pit-section-title"><CalendarDays size={35}/><div><strong>Calendário de Bônus</strong><small>Resgate seu bônus diário e acumule pontos.</small></div></div>
   <div className="pit-calendar-month">{monthLabel}</div>
@@ -101,19 +115,7 @@ function App(){
   <button className="pit-streak-claim" disabled={busy||!streakAvailable||streakClaimed} onClick={claimStreak}>{streakClaimed?'Bônus resgatado':streakAvailable?'Resgatar bônus de 1.000 pontos':'Continue resgatando seu bônus diário'}</button>
  </section>
 
- <section className="pit-home-rewards pit-home-rewards-compact">
-  <div className="pit-home-reward-tiles">
-   <button className="pit-home-reward-tile pit-home-wheel-tile" onClick={()=>{setRewardPlayModal('wheel');setRewardPlayStage('ready');setRewardClaimResult('')}}>
-    <span className="pit-home-tile-art"><div className="pit-wheel-disc">✦<span>✦</span><b>✦</b><i>✦</i></div></span><span><strong>Roleta Diária</strong><small>Gire e ganhe pontos!</small></span><ChevronRight size={20}/>
-   </button>
-   <button className="pit-home-reward-tile pit-home-chest-tile" onClick={()=>{setRewardPlayModal('chest');setRewardPlayStage('ready');setRewardClaimResult('')}}>
-    <span className="pit-home-tile-art pit-home-chest-art">🎁</span><span><strong>Baú Diário</strong><small>Abra e receba recompensas!</small></span><ChevronRight size={20}/>
-   </button>
-  </div>
-  <div className="pit-home-surprise-card pit-home-surprise-card-live">
-   <span className="pit-home-surprise-art">🎊</span><div className="pit-home-surprise-content"><strong>Baú Surpresa</strong>{surpriseEvents.length===0?<small>{historyBusy?'Verificando eventos...':'Nenhum evento surpresa ativo neste momento.'}</small>:surpriseEvents.map(ev=>{const claimed=rewardHistory.some(h=>h.system_key==='surprise_chest'&&h.event_id===ev.id);return <div className="pit-home-surprise-event" key={ev.id}><small>Evento especial · Até {new Date(ev.expires_at).toLocaleString('pt-BR')}</small><button className="primary" disabled={claimed||rewardClaimBusy} onClick={()=>claimSurprise(ev.id)}>{claimed?'Recompensa resgatada':rewardClaimBusy?'Processando...':'🎁 Resgatar surpresa'}</button></div>})}</div>
-  </div>
- </section>
+ 
 <section className="pit-home-shortcuts"><button onClick={()=>setTab('Missões')}><CalendarCheck/><b>Missões</b></button><button onClick={()=>setTab('Convites')}><Users/><b>Convites</b></button></section>
  <section className="pit-home-missions"><div className="section-head"><div><span className="eyebrow">OPORTUNIDADES</span><h2>Missões para você</h2></div><button className="text-btn" onClick={()=>setTab('Missões')}>Ver todas <ChevronRight size={16}/></button></div>{missions.slice(0,2).map(m=><article className="mission" key={m.id}><div className="mission-icon"><Target size={20}/></div><div className="mission-info"><strong>{m.title}</strong><p>{m.description}</p></div><div className="reward">+{fmt(m.reward_points)} pts</div></article>)}{missions.length===0&&<div className="event"><h3>Nenhuma missão publicada</h3><p>As missões aparecerão aqui.</p></div>}</section>
  <section className="event"><div className="event-icon"><Gift size={20}/></div><div><span className="eyebrow">PIT EVENTOS</span><h3>Novidades e desafios</h3><p>Fique atento às próximas campanhas.</p></div><ChevronRight/></section>
