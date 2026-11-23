@@ -111,9 +111,9 @@ async function claimWheel(){if(rewardClaimBusy)return;setRewardClaimBusy(true);s
     <span className="pit-home-tile-art pit-home-chest-art">🎁</span><span><strong>Baú Diário</strong><small>Abra e receba recompensas!</small></span><ChevronRight size={20}/>
    </button>
   </div>
-  {surpriseEvents.length>0 && <div className="pit-home-surprise-card">
-   <span className="pit-home-surprise-art">🎊</span><div><strong>Baú Surpresa</strong><small>Evento surpresa ativo!</small>{surpriseEvents.map(ev=><small key={ev.id}>Até {new Date(ev.expires_at).toLocaleString('pt-BR')}</small>)}</div>
-  </div>}
+  <div className="pit-home-surprise-card pit-home-surprise-card-live">
+   <span className="pit-home-surprise-art">🎊</span><div className="pit-home-surprise-content"><strong>Baú Surpresa</strong>{surpriseEvents.length===0?<small>{historyBusy?'Verificando eventos...':'Nenhum evento surpresa ativo neste momento.'}</small>:surpriseEvents.map(ev=>{const claimed=rewardHistory.some(h=>h.system_key==='surprise_chest'&&h.event_id===ev.id);return <div className="pit-home-surprise-event" key={ev.id}><small>Evento especial · Até {new Date(ev.expires_at).toLocaleString('pt-BR')}</small><button className="primary" disabled={claimed||rewardClaimBusy} onClick={()=>claimSurprise(ev.id)}>{claimed?'Recompensa resgatada':rewardClaimBusy?'Processando...':'🎁 Resgatar surpresa'}</button></div>})}</div>
+  </div>
  </section>
 <section className="pit-home-shortcuts"><button onClick={()=>setTab('Missões')}><CalendarCheck/><b>Missões</b></button><button onClick={()=>setTab('Convites')}><Users/><b>Convites</b></button></section>
  <section className="pit-home-missions"><div className="section-head"><div><span className="eyebrow">OPORTUNIDADES</span><h2>Missões para você</h2></div><button className="text-btn" onClick={()=>setTab('Missões')}>Ver todas <ChevronRight size={16}/></button></div>{missions.slice(0,2).map(m=><article className="mission" key={m.id}><div className="mission-icon"><Target size={20}/></div><div className="mission-info"><strong>{m.title}</strong><p>{m.description}</p></div><div className="reward">+{fmt(m.reward_points)} pts</div></article>)}{missions.length===0&&<div className="event"><h3>Nenhuma missão publicada</h3><p>As missões aparecerão aqui.</p></div>}</section>
