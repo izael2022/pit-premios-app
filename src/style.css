@@ -418,3 +418,5 @@ main{padding:20px!important}
 
 /* Feedback animado para resgates */
 .reward-feedback{animation:rewardFeedbackIn .38s ease-out;transform-origin:center left;border:1px solid #4c7a3b;background:linear-gradient(110deg,#163522,#102219);border-radius:13px;padding:13px 15px;box-shadow:0 8px 24px #0003}.reward-feedback::before{content:'✦';color:#a6ed79;margin-right:8px;display:inline-block;animation:rewardSpark .8s ease-out}@keyframes rewardFeedbackIn{0%{opacity:0;transform:translateY(10px) scale(.97)}100%{opacity:1;transform:translateY(0) scale(1)}}@keyframes rewardSpark{0%{transform:rotate(-30deg) scale(.3);opacity:0}70%{transform:rotate(25deg) scale(1.3);opacity:1}100%{transform:rotate(0) scale(1)}}
+
+.daily-chest-countdown{padding:18px;margin:12px 0;border-radius:14px;background:rgba(16,130,84,.10);text-align:center}.daily-chest-countdown p{margin:8px 0}.countdown-clock{font-size:2rem;font-weight:800;letter-spacing:2px;margin:10px 0}.daily-chest-countdown small{opacity:.75}
