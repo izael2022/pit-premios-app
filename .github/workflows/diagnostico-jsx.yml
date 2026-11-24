@@ -12,6 +12,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
-      - name: Validar sintaxe JSX com esbuild
-        run: npx esbuild src/main.jsx --loader=jsx --outfile=/tmp/main-diagnostic.js
+      - run: npm install
+      - name: Build de diagnostico
+        run: npm run build
