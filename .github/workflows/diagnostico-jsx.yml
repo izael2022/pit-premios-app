@@ -1,0 +1,17 @@
+name: Diagnostico JSX isolado
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - diagnostico-jsx-main-934515
+jobs:
+  jsx-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Validar sintaxe JSX com esbuild
+        run: npx esbuild src/main.jsx --loader=jsx --outfile=/tmp/main-diagnostic.js
