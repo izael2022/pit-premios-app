@@ -1,0 +1,1 @@
+Arquivo temporário para disparar validação em PR contra branch de diagnóstico.
