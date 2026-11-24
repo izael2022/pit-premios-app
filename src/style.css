@@ -471,3 +471,26 @@ main{padding:20px!important}
 @keyframes pitPlayChestIdle{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-11px) rotate(2deg)}}
 @keyframes pitPlayChestOpen{0%{transform:scale(1) rotate(-3deg)}100%{transform:scale(1.13) rotate(4deg);filter:drop-shadow(0 0 34px #a5ed76)}}
 @media(max-width:420px){.pit-play-modal{padding:28px 18px 22px}.pit-play-wheel-wrap{margin:20px auto 22px}.pit-play-result{padding:15px 12px}}
+
+/* VISUAL 3D PREMIUM - ROLETAS E BAU */
+.pit-play-modal{position:relative;isolation:isolate}
+.pit-play-wheel-wrap{perspective:1000px;transform-style:preserve-3d}
+.pit-wheel-disc.pit-play-wheel{position:relative;transform-style:preserve-3d;transform:rotateX(13deg);border-radius:50%;background:conic-gradient(from -20deg,#ff514b 0 45deg,#ffce45 45deg 90deg,#39c982 90deg 135deg,#36a5ff 135deg 180deg,#a45bff 180deg 225deg,#ff963b 225deg 270deg,#ff514b 270deg 315deg,#ffce45 315deg 360deg);border:10px solid #ffe17a;box-shadow:0 7px 0 #986321,0 13px 0 #493015,0 22px 30px #0009,inset 0 0 18px #fff7!important;outline:3px solid #fff3c4}
+.pit-wheel-disc.pit-play-wheel:before{content:'';position:absolute;inset:8px;border-radius:50%;border:2px dashed #fff8;box-shadow:inset 0 0 18px #0005}
+.pit-wheel-disc.pit-play-wheel:after{width:42px!important;height:42px!important;background:radial-gradient(circle at 30% 25%,#fff,#b8d4c1 30%,#365443 70%)!important;border:5px solid #f5d875!important;box-shadow:0 5px 8px #0009,0 0 0 5px #704a23!important;z-index:3}
+.pit-wheel-disc.pit-play-wheel span,.pit-wheel-disc.pit-play-wheel b,.pit-wheel-disc.pit-play-wheel i{filter:drop-shadow(0 3px 2px #0008)}
+.pit-play-pointer{position:absolute;transform:translateZ(40px);text-shadow:0 3px 5px #000}
+.pit-play-wheel-spinning{animation:pitPlaySpin3d 3.9s cubic-bezier(.08,.75,.12,1) forwards!important}
+@keyframes pitPlaySpin3d{0%{transform:rotateX(13deg) rotateZ(0)}100%{transform:rotateX(13deg) rotateZ(1440deg)}}
+.pit-play-chest{position:relative;min-height:190px;display:grid;place-items:center;perspective:900px;overflow:visible}
+.pit-3d-chest{position:relative;width:190px;height:150px;transform:rotateX(12deg) rotateY(-12deg);transform-style:preserve-3d;filter:drop-shadow(0 28px 18px #0008);animation:pitChestHover3d 3s ease-in-out infinite}
+.pit-3d-chest-body{position:absolute;bottom:0;left:8px;width:174px;height:91px;border-radius:15px 15px 22px 22px;background:linear-gradient(110deg,#6b260b,#d56b1d 23%,#f0a63c 48%,#9a4010 75%,#4b1d0a);border:5px solid #ffcf60;box-shadow:inset 0 -14px 0 #55220d,inset 0 10px 12px #ffd87a55;transform:translateZ(12px)}
+.pit-3d-chest-body:before{content:'';position:absolute;left:22px;right:22px;top:0;height:100%;border-left:10px solid #ffd76a;border-right:10px solid #ffd76a;box-shadow:0 0 9px #ffdf86}
+.pit-3d-chest-lid{position:absolute;top:10px;left:4px;width:182px;height:65px;border-radius:22px 22px 12px 12px;background:linear-gradient(145deg,#ffcf62 0%,#d87a24 25%,#a34814 52%,#f6b344 78%,#6e290b);border:5px solid #ffe17a;box-shadow:inset 0 8px 10px #fff5,0 8px 0 #6a2b0c;transform:translateZ(30px) rotateX(-18deg);transform-origin:bottom}
+.pit-chest-gem{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#b9fff3,#1bd0a5 45%,#086c66);border:4px solid #ffe58c;color:#fff;font-size:22px;box-shadow:0 0 22px #40f2d6}
+.pit-chest-lock{position:absolute;top:22px;left:50%;transform:translateX(-50%);font-size:36px;color:#fff5bb;text-shadow:0 0 14px #ffd35a,0 3px 5px #000}
+.pit-chest-glow{position:absolute;inset:-22px;border-radius:50%;background:radial-gradient(ellipse,#ffd35a30,transparent 68%);z-index:-1}
+.pit-play-chest-opening .pit-3d-chest{animation:pitChestOpen3d .6s ease-in-out infinite alternate}
+@keyframes pitChestHover3d{0%,100%{transform:rotateX(12deg) rotateY(-12deg) translateY(0)}50%{transform:rotateX(16deg) rotateY(8deg) translateY(-10px)}}
+@keyframes pitChestOpen3d{to{transform:rotateX(20deg) rotateY(18deg) translateY(-10px) scale(1.12);filter:drop-shadow(0 0 35px #ffe16a)}}
+@media(max-width:430px){.pit-3d-chest{transform:scale(.88) rotateX(12deg) rotateY(-12deg)}}
