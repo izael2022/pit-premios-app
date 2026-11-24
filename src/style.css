@@ -494,3 +494,30 @@ main{padding:20px!important}
 @keyframes pitChestHover3d{0%,100%{transform:rotateX(12deg) rotateY(-12deg) translateY(0)}50%{transform:rotateX(16deg) rotateY(8deg) translateY(-10px)}}
 @keyframes pitChestOpen3d{to{transform:rotateX(20deg) rotateY(18deg) translateY(-10px) scale(1.12);filter:drop-shadow(0 0 35px #ffe16a)}}
 @media(max-width:430px){.pit-3d-chest{transform:scale(.88) rotateX(12deg) rotateY(-12deg)}}
+
+/* REVISAO VISUAL FORTE: ROLETE DE ARCADE 3D + BAU CINEMATIC */
+.pit-play-modal{width:min(490px,calc(100vw - 26px));padding:34px 28px 28px;background:radial-gradient(ellipse at 50% 0%,#22543a 0%,#10291d 48%,#06130c 100%);border:1px solid #78bd75;box-shadow:0 35px 100px #000c,0 0 55px #49d17a20;overflow:visible}
+.pit-play-wheel-wrap{width:min(320px,78vw);height:min(320px,78vw);margin:34px auto 38px;padding:0;background:none;filter:none;perspective:1100px}
+.pit-wheel-disc.pit-play-wheel{width:100%!important;height:100%!important;display:grid;place-items:center;border-radius:50%;position:relative;overflow:hidden;transform:rotateX(8deg);border:13px solid #ffdf75!important;background:conic-gradient(#ff5d58 0deg 45deg,#ffc947 45deg 90deg,#38cf89 90deg 135deg,#3ba5ff 135deg 180deg,#a35cff 180deg 225deg,#ff9c40 225deg 270deg,#ff5d58 270deg 315deg,#ffc947 315deg 360deg)!important;box-shadow:0 5px 0 #b27a26,0 11px 0 #714a1d,0 16px 0 #392514,0 28px 38px #000b,inset 0 0 0 3px #fff9,inset 0 0 30px #fff4!important;outline:none}
+.pit-wheel-disc.pit-play-wheel:before{content:"";position:absolute;inset:9px;border:4px solid #ffe9a0;border-radius:50%;box-shadow:inset 0 0 18px #fff8;z-index:1}
+.pit-wheel-disc.pit-play-wheel:after{content:"";width:60px!important;height:60px!important;border-radius:50%;background:radial-gradient(circle at 28% 22%,#fff,#c8e5d0 35%,#4d755e 72%,#1b3927)!important;border:7px solid #f4d56d!important;box-shadow:0 7px 10px #0009,0 0 0 7px #83571e,0 0 20px #fff8!important;z-index:4}
+.pit-wheel-disc.pit-play-wheel span,.pit-wheel-disc.pit-play-wheel b,.pit-wheel-disc.pit-play-wheel i{font-size:40px!important;position:absolute;z-index:2;color:#fffbe3;text-shadow:0 3px 7px #0008;filter:drop-shadow(0 2px 5px #000)}
+.pit-wheel-disc.pit-play-wheel span{top:16%;right:20%}.pit-wheel-disc.pit-play-wheel b{bottom:16%;left:20%}.pit-wheel-disc.pit-play-wheel i{bottom:16%;right:20%}
+.pit-play-pointer{top:-21px!important;left:50%;transform:translateX(-50%) translateZ(70px)!important;font-size:0!important;width:0;height:0;border-left:24px solid transparent;border-right:24px solid transparent;border-top:0;border-bottom:43px solid #fff0a1;filter:drop-shadow(0 5px 0 #a26a20) drop-shadow(0 8px 9px #0008);z-index:10}
+.pit-play-wheel-spinning{animation:pitWheelCinematicSpin 4.5s cubic-bezier(.08,.72,.12,1) forwards!important}
+@keyframes pitWheelCinematicSpin{0%{transform:rotateX(8deg) rotateZ(0deg)}15%{transform:rotateX(8deg) rotateZ(500deg)}100%{transform:rotateX(8deg) rotateZ(1980deg)}}
+.pit-3d-chest{width:220px;height:175px;animation:pitChestHoverFinal 3.2s ease-in-out infinite;filter:drop-shadow(0 30px 24px #0009)}
+.pit-3d-chest-body{left:8px;width:204px;height:104px;border-radius:12px 12px 25px 25px;background:linear-gradient(90deg,#68300c 0%,#c56b1d 12%,#ffbd50 30%,#9d4812 50%,#e78c2a 70%,#6a2a0a 100%);border:7px solid #ffdf79;box-shadow:inset 0 0 0 3px #9e561b,inset 0 -18px 0 #582408,inset 0 10px 15px #fff5,0 8px 0 #54250c;transform:translateZ(14px)}
+.pit-3d-chest-body:before{left:25px;right:25px;border-left:13px solid #ffe18a;border-right:13px solid #ffe18a;box-shadow:0 0 12px #ffdf86}
+.pit-3d-chest-lid{top:3px;left:3px;width:214px;height:78px;border-radius:34px 34px 14px 14px;background:linear-gradient(155deg,#fff0a4 0%,#f6bb50 15%,#b35a17 38%,#f2a53d 62%,#71300b 88%);border:7px solid #ffe68a;box-shadow:inset 0 12px 15px #fff6,inset 0 -9px 0 #74340f,0 12px 0 #63300f,0 18px 25px #0008;transform:translateZ(38px) rotateX(-14deg);transform-origin:bottom center;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.pit-chest-gem{width:46px;height:46px;border-radius:14px;bottom:-24px;background:linear-gradient(140deg,#e4fffd,#37e4bd 45%,#007d83);box-shadow:0 0 28px #49fff0,0 5px 0 #0a5255}
+.pit-chest-lock{font-size:42px;color:#fff6ca;text-shadow:0 0 22px #ffd76b}
+.pit-play-chest-opening .pit-3d-chest-lid{transform:translateZ(38px) rotateX(-115deg)!important}
+.pit-play-chest-opening .pit-3d-chest{animation:pitChestReveal .85s ease-in-out infinite alternate}
+.pit-play-chest-opening .pit-chest-glow{background:radial-gradient(ellipse,#fff6a7 0%,#ffc94d66 35%,transparent 72%);animation:pitChestLightPulse .45s ease-in-out infinite alternate}
+@keyframes pitChestHoverFinal{0%,100%{transform:rotateX(8deg) rotateY(-10deg) translateY(0)}50%{transform:rotateX(12deg) rotateY(10deg) translateY(-12px)}}
+@keyframes pitChestReveal{to{transform:rotateX(12deg) rotateY(14deg) translateY(-12px) scale(1.06)}}
+@keyframes pitChestLightPulse{to{opacity:1;transform:scale(1.2)}}
+.pit-play-chest{min-height:220px}
+.pit-play-result{background:linear-gradient(150deg,#143724,#091a11);border:1px solid #5c9d69;box-shadow:0 12px 30px #0005,inset 0 1px #ffffff16;padding:20px 16px;border-radius:24px}
+@media(max-width:430px){.pit-play-modal{padding:30px 19px 24px}.pit-play-wheel-wrap{width:min(290px,75vw);height:min(290px,75vw)}.pit-3d-chest{transform:scale(.9) rotateX(8deg) rotateY(-10deg)}}
