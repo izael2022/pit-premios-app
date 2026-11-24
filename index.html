@@ -8,28 +8,24 @@
 main{width:min(560px,100%);text-align:center;padding:34px 26px;border:1px solid #245d45;border-radius:25px;background:linear-gradient(145deg,#10251d,#07130f);box-shadow:0 25px 90px #0008;position:relative;z-index:2}
 h1{font-size:clamp(24px,6vw,34px);margin:8px 0 14px;letter-spacing:-.5px}p{font-size:17px;line-height:1.65;color:#cbd5e1;margin:0}
 .logo{width:74px;height:74px;border-radius:23px;margin:0 auto 18px;display:grid;place-items:center;background:linear-gradient(135deg,#8af35b,#22a74d);color:#06210f;font-size:42px;font-weight:900;box-shadow:0 0 35px #4be66b55;animation:float 2.8s ease-in-out infinite}
-.gears{font-size:48px;display:inline-block;animation:spin 7s linear infinite;margin:8px 0}
-.gears span{display:inline-block;animation:spinReverse 5s linear infinite}
+.gears{font-size:48px;display:inline-block;animation:spin 7s linear infinite;margin:8px 0}.gears span{display:inline-block;animation:spinReverse 5s linear infinite}
 .line{height:5px;width:140px;margin:24px auto;background:#183e2d;border-radius:10px;overflow:hidden}.line i{display:block;width:35%;height:100%;border-radius:10px;background:#65ed4b;animation:load 2s ease-in-out infinite}
 button{margin-top:23px;padding:12px 18px;border:1px solid #397b54;border-radius:14px;background:#10291d;color:#eaffed;font-size:15px;font-weight:700;cursor:pointer}button:hover{background:#17402a}.small{margin-top:18px;font-size:13px;color:#91a99b}
 .particle{position:fixed;bottom:-30px;color:#63f071;opacity:0;animation:rise var(--dur) linear infinite;left:var(--x);font-size:var(--s);text-shadow:0 0 12px #56ff75}
 @keyframes float{50%{transform:translateY(-9px)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes spinReverse{to{transform:rotate(-360deg)}}@keyframes load{0%{transform:translateX(-120%)}100%{transform:translateX(400%)}}@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}15%{opacity:.65}100%{transform:translateY(-110vh) rotate(360deg);opacity:0}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:1ms!important;animation-iteration-count:1!important}}
-</style>
-</head>
-<body>
+</style></head><body>
 <div class="particle" style="--x:8%;--dur:9s;--s:20px">✦</div><div class="particle" style="--x:22%;--dur:12s;--s:14px">●</div><div class="particle" style="--x:38%;--dur:8s;--s:24px">✧</div><div class="particle" style="--x:65%;--dur:11s;--s:18px">✦</div><div class="particle" style="--x:82%;--dur:9s;--s:15px">●</div><div class="particle" style="--x:95%;--dur:13s;--s:22px">✧</div>
 <main><div class="logo">P</div><div class="gears">⚙️<span>⚙️</span></div>
-<h1>Aplicativo temporariamente fora do ar</h1>
-<p>Estamos trabalhando para corrigir erros e bugs e preparando melhorias para o PIT PRÊMIOS. Em breve voltaremos!</p>
-<div class="line"><i></i></div>
-<p>Obrigado pela compreensão e paciência. Estamos preparando uma nova experiência para você.</p>
-<button id="music">♫ Ativar música ambiente</button>
+<h1>Aplicativo temporariamente fora do ar</h1><p>Estamos trabalhando para corrigir erros e bugs e preparando melhorias para o PIT PRÊMIOS. Em breve voltaremos!</p>
+<div class="line"><i></i></div><p>Obrigado pela compreensão e paciência. Estamos preparando uma nova experiência para você.</p>
+<button id="music" type="button">♫ Tocar música ambiente</button><div id="status" class="small">Toque no botão para ouvir a música.</div>
 <div class="small">PIT PRÊMIOS · Estamos trabalhando para voltar melhor.</div></main>
 <script>
-let ctx,osc,gain,osc2,gain2,playing=false;
-const btn=document.getElementById('music');
-function startMusic(){ctx=new (window.AudioContext||window.webkitAudioContext)();gain=ctx.createGain();gain2=ctx.createGain();gain.gain.value=.035;gain2.gain.value=.018;osc=ctx.createOscillator();osc2=ctx.createOscillator();osc.type='sine';osc2.type='triangle';osc.frequency.value=220;osc2.frequency.value=329.63;osc.connect(gain);osc2.connect(gain2);gain.connect(ctx.destination);gain2.connect(ctx.destination);osc.start();osc2.start();let notes=[220,261.63,293.66,329.63,392,329.63,293.66,261.63];let i=0;setInterval(()=>{if(ctx&&ctx.state==='running'){osc.frequency.setTargetAtTime(notes[i%notes.length],ctx.currentTime,.4);osc2.frequency.setTargetAtTime(notes[(i+3)%notes.length],ctx.currentTime,.4);i++}},1800);playing=true;btn.textContent='♫ Desativar música ambiente'}
-btn.addEventListener('click',()=>{if(!playing){startMusic()}else{ctx.suspend();playing=false;btn.textContent='♫ Ativar música ambiente'}});
-</script>
-</body></html>
+let audioCtx=null,master=null,sequenceTimer=null,playing=false;
+const btn=document.getElementById('music'),status=document.getElementById('status');
+const melody=[261.63,329.63,392,329.63,293.66,349.23,440,349.23,261.63,329.63,392,523.25,440,392,349.23,293.66];
+function note(freq,start,duration){const osc=audioCtx.createOscillator(),vol=audioCtx.createGain();osc.type='sine';osc.frequency.setValueAtTime(freq,start);vol.gain.setValueAtTime(.0001,start);vol.gain.exponentialRampToValueAtTime(.10,start+.08);vol.gain.exponentialRampToValueAtTime(.0001,start+duration);osc.connect(vol);vol.connect(master);osc.start(start);osc.stop(start+duration+.03)}
+function playLoop(){let n=0;function step(){if(!playing||!audioCtx)return;const now=audioCtx.currentTime;note(melody[n%melody.length],now,1.35);note(melody[(n+4)%melody.length]/2,now,1.45);n++;sequenceTimer=setTimeout(step,1450)}step()}
+btn.addEventListener('click',async()=>{try{if(!playing){const AC=window.AudioContext||window.webkitAudioContext;if(!AC){status.textContent='Seu navegador não oferece suporte ao áudio.';return}audioCtx=audioCtx||new AC();if(audioCtx.state==='suspended')await audioCtx.resume();master=audioCtx.createGain();master.gain.value=.22;master.connect(audioCtx.destination);playing=true;playLoop();btn.textContent='♫ Pausar música ambiente';status.textContent='Música ambiente tocando.'}else{playing=false;clearTimeout(sequenceTimer);if(audioCtx&&audioCtx.state==='running')await audioCtx.suspend();btn.textContent='♫ Tocar música ambiente';status.textContent='Música pausada.'}}catch(e){playing=false;status.textContent='Não foi possível iniciar o áudio. Tente clicar novamente.';btn.textContent='♫ Tentar tocar novamente';console.error('Audio error:',e)}});
+</script></body></html>
