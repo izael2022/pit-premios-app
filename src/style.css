@@ -445,3 +445,29 @@ main{padding:20px!important}
 
 /* Baú Surpresa na tela inicial: visível mesmo quando a consulta não retorna eventos */
 .pit-home-surprise-card-live{align-items:flex-start;min-height:110px}.pit-home-surprise-content{flex:1;min-width:0}.pit-home-surprise-event{margin-top:10px;display:flex;flex-direction:column;gap:8px}.pit-home-surprise-event button{width:100%;min-height:42px;border-radius:12px;font-weight:800}.pit-home-surprise-card-live small{line-height:1.45}.pit-home-surprise-card-live button:disabled{opacity:.65}
+
+/* Redesign premium dos modais Roleta e Baú Diário */
+.pit-play-modal-backdrop{background:radial-gradient(ellipse at center,#0b2418bb,#020605ee 78%);backdrop-filter:blur(12px) saturate(1.2)}
+.pit-play-modal{overflow:hidden;border-radius:30px;border:1px solid #6ba66b;background:linear-gradient(155deg,#183d2b 0%,#10271c 44%,#07130d 100%);box-shadow:0 0 0 1px #ffffff08,0 24px 80px #000b,0 0 45px #74d54a18;padding:30px 24px 26px}
+.pit-play-modal:before{content:'';position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#b9f887,#54b86c,#f6d36b);opacity:.9}
+.pit-play-modal h2{font-size:27px;letter-spacing:-.6px;text-shadow:0 2px 18px #9be66b20}
+.pit-play-modal>p{font-size:14px;line-height:1.55;color:#c4ddce}
+.pit-play-close{z-index:5;width:42px;height:42px;top:14px;right:14px;border:1px solid #ffffff1c;background:#ffffff0c;color:#e8f6eb;font-size:25px;transition:transform .2s,background .2s}
+.pit-play-close:hover{transform:rotate(90deg);background:#ffffff20}
+.pit-play-wheel-wrap{width:min(270px,78vw);height:min(270px,78vw);margin:24px auto 26px;padding:12px;border-radius:50%;background:radial-gradient(circle,#ffe18b20,#0000 68%);filter:drop-shadow(0 15px 22px #0006)}
+.pit-play-wheel{width:100%!important;height:100%!important;border:11px solid #f6d15d!important;box-shadow:0 0 0 4px #68451b,0 0 0 9px #e2b84720,0 0 36px #f8d65c35,0 15px 28px #0008!important;background:conic-gradient(#fb5b51 0 45deg,#ffc64b 45deg 90deg,#56c783 90deg 135deg,#468ff1 135deg 180deg,#a967e8 180deg 225deg,#ff9745 225deg 270deg,#fb5b51 270deg 315deg,#ffc64b 315deg 360deg);font-size:34px!important;text-shadow:0 2px 5px #0007}
+.pit-play-wheel:after{width:34px!important;height:34px!important;border:6px solid #34503c!important;box-shadow:0 0 0 4px #f3e5b8,0 4px 10px #0008!important}
+.pit-play-wheel span,.pit-play-wheel b,.pit-play-wheel i{font-size:28px!important;filter:drop-shadow(0 2px 4px #0008)}
+.pit-play-pointer{top:-10px;font-size:36px;color:#ffe477;filter:drop-shadow(0 3px 5px #0009);z-index:4}
+.pit-play-wheel-spinning{animation:pitPlaySpin 3.8s cubic-bezier(.08,.76,.12,1) forwards!important}
+.pit-play-chest{font-size:clamp(118px,35vw,164px);margin:28px auto 30px;line-height:1.2;filter:drop-shadow(0 15px 26px #0008);animation:pitPlayChestIdle 2.3s ease-in-out infinite}
+.pit-play-chest-opening{animation:pitPlayChestOpen .65s ease-in-out infinite alternate}
+.pit-play-action{min-height:60px;border-radius:18px;font-size:17px;letter-spacing:.5px;background:linear-gradient(135deg,#b4f47c,#7edb59)!important;color:#102017!important;border:1px solid #d4ffb3!important;box-shadow:0 5px 0 #4c9136,0 12px 26px #0005!important}
+.pit-play-action:not(:disabled):hover{transform:translateY(-2px);filter:brightness(1.07)}
+.pit-play-result{margin:18px 0 4px;padding:18px 14px;border:1px solid #75b77b55;border-radius:22px;background:linear-gradient(145deg,#ffffff0c,#ffffff03);box-shadow:inset 0 1px #ffffff12;gap:14px}
+.pit-play-result h3{font-size:21px;color:#b5f17c}
+.pit-play-result strong{font-size:clamp(17px,4vw,21px);line-height:1.5;color:#f0f8e8;overflow-wrap:anywhere}
+.pit-play-result button{border-radius:16px;min-height:54px}
+@keyframes pitPlayChestIdle{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-11px) rotate(2deg)}}
+@keyframes pitPlayChestOpen{0%{transform:scale(1) rotate(-3deg)}100%{transform:scale(1.13) rotate(4deg);filter:drop-shadow(0 0 34px #a5ed76)}}
+@media(max-width:420px){.pit-play-modal{padding:28px 18px 22px}.pit-play-wheel-wrap{margin:20px auto 22px}.pit-play-result{padding:15px 12px}}
