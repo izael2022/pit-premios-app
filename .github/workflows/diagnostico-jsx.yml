@@ -1,7 +1,6 @@
 name: Diagnostico JSX isolado
 on:
-  workflow_dispatch:
-  push:
+  pull_request:
     branches:
       - diagnostico-jsx-main-934515
 jobs:
