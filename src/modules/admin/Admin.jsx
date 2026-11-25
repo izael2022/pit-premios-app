@@ -1,0 +1,12 @@
+import React,{useEffect,useState} from "react";
+import {supabase} from "../../lib/supabase.js";
+import "./admin.css";
+export default function Admin({user}){
+ const [allowed,setAllowed]=useState(false),[loading,setLoading]=useState(true),[rows,setRows]=useState([]),[error,setError]=useState(""),[notes,setNotes]=useState({});
+ const load=async()=>{setError("");const a=await supabase.rpc("is_app_admin");if(a.error){setError("Funções administrativas ainda não estão disponíveis. A migração precisa ser revisada e aplicada.");setLoading(false);return;}if(!a.data){setAllowed(false);setLoading(false);return;}setAllowed(true);const r=await supabase.rpc("admin_list_withdrawals");if(r.error)setError(r.error.message);else setRows(r.data||[]);setLoading(false);};
+ useEffect(()=>{load()},[]);
+ const review=async(id,decision)=>{if(!confirm(decision==="approved"?"Confirmar aprovação? O pagamento PIX deverá ser realizado manualmente.":"Confirmar rejeição? Os pontos serão estornados automaticamente."))return;const r=await supabase.rpc("admin_review_withdrawal",{p_request_id:id,p_decision:decision,p_note:notes[id]||null});if(r.error){setError(r.error.message);return;}await load();};
+ if(loading)return <div className="admin-panel">Carregando painel…</div>;
+ if(!allowed)return <div className="admin-panel"><h2>Acesso administrativo</h2><p>Esta conta não possui permissão de administrador.</p>{error&&<p className="admin-error">{error}</p>}</div>;
+ return <section className="admin-panel"><div className="admin-head"><div><h2>Solicitações de saque</h2><p>Revisão manual. A aprovação não executa o pagamento PIX.</p></div><button onClick={load}>Atualizar</button></div>{error&&<p className="admin-error">{error}</p>}{rows.length===0?<p>Nenhuma solicitação encontrada.</p>:rows.map(x=><article className="withdraw-card" key={x.id}><div className="withdraw-info"><strong>Pedido #{x.id} · {x.status}</strong><p>{x.display_name||x.user_id} · {x.points.toLocaleString("pt-BR")} pontos</p><p>PIX ({x.pix_key_type}): <code>{x.pix_key}</code></p><small>{new Date(x.created_at).toLocaleString("pt-BR")}</small></div>{x.status==="pending"&&<div className="review-actions"><input placeholder="Observação opcional" value={notes[x.id]||""} onChange={e=>setNotes({...notes,[x.id]:e.target.value})}/><button className="approve" onClick={()=>review(x.id,"approved")}>Aprovar</button><button className="reject" onClick={()=>review(x.id,"rejected")}>Rejeitar / estornar</button></div>}</article>)}</section>;
+}
