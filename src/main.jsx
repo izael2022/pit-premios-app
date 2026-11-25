@@ -2,7 +2,8 @@ import React,{useEffect,useState} from "react";
 import {createRoot} from "react-dom/client";
 import {supabase} from "./lib/supabase.js";
 import {modules} from "./modules/modules.js";
-import "./styles/global.css";\nimport Wallet from "./modules/wallet/Wallet.jsx";
+import "./styles/global.css";
+import Wallet from "./modules/wallet/Wallet.jsx";
 
 function Auth(){
  const [mode,setMode]=useState("login"),[email,setEmail]=useState(""),[password,setPassword]=useState(""),[busy,setBusy]=useState(false),[msg,setMsg]=useState("");
