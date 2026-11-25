@@ -1,4 +1,5 @@
 import React from "react";
+import "./home.css";
 export default function Home({user,onNavigate}) {
  const cards=[
   {id:"missions",icon:"✓",title:"Missões",desc:"Confira as missões disponíveis e conquiste pontos."},
