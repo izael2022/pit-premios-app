@@ -1,5 +1,3 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import "./styles/global.css";
-function App(){return <main className="shell"><div className="mark">P</div><h1>PIT <span>PRÊMIOS</span></h1><p>Nova plataforma em construção.</p><small>Fundação inicial · Reconstrução do zero</small></main>}
+import React,{useState} from "react";import {createRoot} from "react-dom/client";import {modules} from "./modules/modules.js";import "./styles/global.css";
+function App(){const [active,setActive]=useState("home");const selected=modules.find(m=>m.id===active);return <main className="app"><header className="header"><div className="brand"><div className="mark">P</div><div>PIT <span style={{color:"#65e85c"}}>PRÊMIOS</span></div></div><span style={{color:"#93ad9c"}}>Nova plataforma</span></header><div className="layout"><nav className="nav" aria-label="Navegação">{modules.map(m=><button key={m.id} className={active===m.id?"active":""} onClick={()=>setActive(m.id)}>{m.icon} &nbsp;{m.label}</button>)}</nav><section className="content"><h1>{selected.label}</h1><div className="module"><h2>{selected.label}</h2><p>{selected.description}</p><p>Este módulo será desenvolvido e conectado às regras e ao banco nas próximas etapas.</p></div></section></div><footer className="foot">Reconstrução modular · Etapa de arquitetura · Supabase preservado</footer></main>}
 createRoot(document.getElementById("root")).render(<React.StrictMode><App/></React.StrictMode>);
