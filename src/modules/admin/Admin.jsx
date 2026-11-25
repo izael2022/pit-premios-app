@@ -4,6 +4,7 @@ import "./admin.css";
 export default function Admin({user}){
  const [allowed,setAllowed]=useState(false),[loading,setLoading]=useState(true),[rows,setRows]=useState([]),[error,setError]=useState(""),[notes,setNotes]=useState({});
  const [view,setView]=useState("withdrawals"),[users,setUsers]=useState([]),[search,setSearch]=useState(""),[userLoading,setUserLoading]=useState(false),[userError,setUserError]=useState("");
+ const [submissions,setSubmissions]=useState([]),[submissionError,setSubmissionError]=useState("");
  const [missions,setMissions]=useState([]),[missionError,setMissionError]=useState(""),[missionBusy,setMissionBusy]=useState(false);
  const [mTitle,setMTitle]=useState(""),[mDesc,setMDesc]=useState(""),[mReward,setMReward]=useState("1000"),[mStart,setMStart]=useState(""),[mEnd,setMEnd]=useState(""),[mMode,setMMode]=useState("automatic");
  const load=async()=>{setError("");const a=await supabase.rpc("is_app_admin");if(a.error){setError("Funções administrativas ainda não estão disponíveis. A migração precisa ser revisada e aplicada.");setLoading(false);return;}if(!a.data){setAllowed(false);setLoading(false);return;}setAllowed(true);const r=await supabase.rpc("admin_list_withdrawals");if(r.error)setError(r.error.message);else setRows(r.data||[]);setLoading(false);};
