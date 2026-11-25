@@ -5,7 +5,8 @@ import {modules} from "./modules/modules.js";
 import "./styles/global.css";
 import Wallet from "./modules/wallet/Wallet.jsx";
 import Admin from "./modules/admin/Admin.jsx";
-import Missions from "./modules/missions/Missions.jsx";\nimport Invites from "./modules/invites/Invites.jsx";
+import Missions from "./modules/missions/Missions.jsx";
+import Invites from "./modules/invites/Invites.jsx";
 
 function Auth(){
  const [mode,setMode]=useState("login"),[email,setEmail]=useState(""),[password,setPassword]=useState(""),[busy,setBusy]=useState(false),[msg,setMsg]=useState("");
