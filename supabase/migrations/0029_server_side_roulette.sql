@@ -10,8 +10,7 @@ create table if not exists public.roulette_spins (
  id bigint generated always as identity primary key,
  user_id uuid not null references auth.users(id) on delete restrict,
  prize_points bigint not null,
- spun_at timestamptz not null default now(),
- unique(user_id, (date_trunc('day', spun_at at time zone 'UTC')))
+ spun_at timestamptz not null default now()
 );
 alter table public.roulette_prizes enable row level security;
 alter table public.roulette_spins enable row level security;
