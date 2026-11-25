@@ -2,7 +2,7 @@ import React,{useEffect,useState} from "react";
 import {createRoot} from "react-dom/client";
 import {supabase} from "./lib/supabase.js";
 import {modules} from "./modules/modules.js";
-import "./styles/global.css";
+import "./styles/global.css";\nimport Wallet from "./modules/wallet/Wallet.jsx";
 
 function Auth(){
  const [mode,setMode]=useState("login"),[email,setEmail]=useState(""),[password,setPassword]=useState(""),[busy,setBusy]=useState(false),[msg,setMsg]=useState("");
@@ -18,6 +18,6 @@ function App(){const [session,setSession]=useState(null),[active,setActive]=useS
  if(loading)return <main className="auth-wrap"><p>Carregando…</p></main>;
  if(!session)return <Auth/>;
  const selected=modules.find(m=>m.id===active)||modules[0];
- return <main className="app"><header className="header"><div className="brand"><div className="mark">P</div><div>PIT <span>PRÊMIOS</span></div></div><div className="account"><span>{session.user.email}</span><button onClick={()=>supabase.auth.signOut()}>Sair</button></div></header><div className="layout"><nav className="nav" aria-label="Navegação">{modules.map(m=><button key={m.id} className={active===m.id?"active":""} onClick={()=>setActive(m.id)}>{m.icon} &nbsp;{m.label}</button>)}</nav><section className="content"><h1>{selected.label}</h1><div className="module"><h2>{selected.label}</h2><p>{selected.description}</p><p>Este módulo será desenvolvido nas próximas etapas.</p></div></section></div><footer className="foot">Reconstrução modular · Autenticação · Supabase</footer></main>;
+ return <main className="app"><header className="header"><div className="brand"><div className="mark">P</div><div>PIT <span>PRÊMIOS</span></div></div><div className="account"><span>{session.user.email}</span><button onClick={()=>supabase.auth.signOut()}>Sair</button></div></header><div className="layout"><nav className="nav" aria-label="Navegação">{modules.map(m=><button key={m.id} className={active===m.id?"active":""} onClick={()=>setActive(m.id)}>{m.icon} &nbsp;{m.label}</button>)}</nav><section className="content"><h1>{selected.label}</h1>{active==="wallet"?<Wallet user={session.user}/>:<div className="module"><h2>{selected.label}</h2><p>{selected.description}</p><p>Este módulo será desenvolvido nas próximas etapas.</p></div>}</section></div><footer className="foot">Reconstrução modular · Autenticação · Supabase</footer></main>;
 }
 createRoot(document.getElementById("root")).render(<React.StrictMode><App/></React.StrictMode>);
