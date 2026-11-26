@@ -683,3 +683,37 @@ main{padding:20px!important}
 .pit-play-modal-backdrop .pit-play-modal.pit-reference-modal:has(.pit-gift-chest-stage) .pit-play-close{border-color:#c9a35c55!important;background:#ffffff08!important;color:#f4d58b!important;}
 @media(max-height:700px){.pit-play-modal-backdrop .pit-play-modal.pit-reference-modal:has(.pit-gift-chest-stage){padding:18px 20px!important;gap:9px!important}.pit-play-modal-backdrop .pit-play-modal.pit-reference-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{height:220px!important;min-height:220px!important;max-height:220px!important}}
 @media(max-width:560px){.pit-play-modal-backdrop .pit-play-modal.pit-reference-modal:has(.pit-gift-chest-stage){padding:18px 14px!important}.pit-play-modal-backdrop .pit-play-modal.pit-reference-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{height:min(240px,30vh)!important;min-height:200px!important;max-height:240px!important}}
+
+/* Ambient backdrop refinement — chest and wheel reward modals */
+.pit-play-modal-backdrop{
+ background:
+ radial-gradient(ellipse at 50% 12%,rgba(35,76,108,.28),transparent 42%),
+ radial-gradient(ellipse at 18% 82%,rgba(190,140,55,.10),transparent 36%),
+ radial-gradient(ellipse at 86% 76%,rgba(48,110,94,.12),transparent 38%),
+ rgba(2,7,13,.88)!important;
+ backdrop-filter:blur(12px) saturate(1.18)!important;
+ -webkit-backdrop-filter:blur(12px) saturate(1.18)!important;
+}
+.pit-play-modal-backdrop .pit-play-modal:has(.pit-wheel-reference-stage){
+ background:linear-gradient(155deg,#172b3b,#0d1826 58%,#07111b)!important;
+ border:1px solid #51708a!important;
+ box-shadow:0 28px 90px #000c,0 0 35px #5b9cc51c,inset 0 1px #ffffff18!important;
+}
+.pit-play-modal-backdrop .pit-wheel-reference-stage{
+ padding:14px!important;border-radius:50%!important;
+ background:radial-gradient(circle at 50% 48%,#263f55 0%,#142b3c 55%,#0b1724 72%,transparent 74%)!important;
+ box-shadow:0 0 0 1px #7194b333,0 0 34px #70a7d21c,inset 0 0 25px #0007!important;
+}
+.pit-play-modal-backdrop .pit-wheel-reference-stage:before{
+ content:"";position:absolute;inset:4px;border-radius:50%;pointer-events:none;
+ background:conic-gradient(from 0deg,transparent,#ffffff12,transparent,#e8b94a16,transparent);
+}
+.pit-play-modal-backdrop .pit-wheel-reference-stage .pit-wheel-svg{
+ filter:drop-shadow(0 15px 18px #000b)!important;
+}
+.pit-play-modal-backdrop .pit-wheel-pointer{
+ filter:drop-shadow(0 3px 5px #000a)!important;
+}
+.pit-play-modal-backdrop .pit-play-modal:has(.pit-gift-chest-stage){
+ box-shadow:0 28px 90px #000c,0 0 38px #d8a34b18,inset 0 1px #ffffff18!important;
+}
