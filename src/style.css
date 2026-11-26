@@ -491,3 +491,39 @@ main{padding:20px!important}
 .pit-play-chest-opening .pit-3d-chest-lid{animation:pitChestLidOpen .75s ease-in forwards!important}
 @keyframes pitChestLidOpen{to{transform:translateY(-55px) rotateX(65deg)!important}}
 @keyframes pitChestNewFloat{0%,100%{transform:rotateX(8deg) rotateY(-8deg) translateY(0)}50%{transform:rotateX(8deg) rotateY(-8deg) translateY(-10px)}}
+
+/* NOVA ROLETa PREMIUM - REDESIGN RADICAL */
+.pit-wheel-disc.pit-play-wheel{transform:rotate(0)!important;overflow:hidden!important;border:13px solid #18283b!important;outline:5px solid #e8bd54!important;outline-offset:3px!important;background:conic-gradient(from -30deg,#f15a70 0 60deg,#f4b942 60deg 120deg,#26b99a 120deg 180deg,#398de8 180deg 240deg,#8957df 240deg 300deg,#ee8845 300deg 360deg)!important;box-shadow:0 9px 0 #b58a37,0 18px 0 #26364b,0 30px 45px #000b,inset 0 0 0 4px #ffffff88,inset 0 0 25px #fff4!important}
+.pit-wheel-disc.pit-play-wheel:before,.pit-wheel-disc.pit-play-wheel:after{display:none!important}
+.new-wheel-wedges{position:absolute!important;inset:0!important;display:block!important;z-index:2!important}
+.new-wheel-wedges span{position:absolute!important;display:flex!important;align-items:center!important;justify-content:center!important;width:68px!important;height:38px!important;color:#fff!important;font-size:22px!important;font-weight:1000!important;text-shadow:0 3px 6px #14243b!important;filter:none!important}
+.new-wheel-wedges span:nth-child(1){top:14%;left:50%;transform:translateX(-50%)}
+.new-wheel-wedges span:nth-child(2){top:31%;right:8%;transform:rotate(60deg)}
+.new-wheel-wedges span:nth-child(3){bottom:26%;right:7%;transform:rotate(120deg)}
+.new-wheel-wedges span:nth-child(4){bottom:14%;left:50%;transform:translateX(-50%)}
+.new-wheel-wedges span:nth-child(5){bottom:30%;left:7%;transform:rotate(-120deg)}
+.new-wheel-wedges span:nth-child(6){top:30%;left:7%;transform:rotate(-60deg)}
+.new-wheel-center{position:absolute!important;z-index:5!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;width:88px!important;height:88px!important;border-radius:50%!important;background:radial-gradient(circle at 30% 20%,#fff,#f7d36e 30%,#bd8129 80%)!important;border:8px solid #18283b!important;box-shadow:0 0 0 4px #fff8,0 7px 14px #0009!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;color:#1a2c43!important;font-weight:1000!important;line-height:1!important}
+.new-wheel-center b{font-size:22px!important}.new-wheel-center small{font-size:8px!important;letter-spacing:1px!important}
+.new-wheel-light-ring{position:absolute!important;inset:9px!important;border-radius:50%!important;border:3px dotted #fff9!important;z-index:1!important;pointer-events:none!important}
+.pit-play-wheel-spinning{animation:pitWheelPremiumSpin 4.7s cubic-bezier(.09,.78,.13,1) forwards!important}
+@keyframes pitWheelPremiumSpin{0%{transform:rotate(0)}12%{transform:rotate(720deg)}100%{transform:rotate(1800deg)}}
+/* BAÚ NOVO - CAIXA DE TESOURO 3D EM ESTILO PREMIUM */
+.pit-play-chest{min-height:300px!important;margin:18px auto 24px!important;overflow:visible!important;display:grid!important;place-items:center!important}
+.chest-showcase{position:relative!important;width:min(330px,80vw)!important;height:270px!important;display:grid!important;place-items:center!important;perspective:1000px!important}
+.chest-aura{position:absolute!important;bottom:10px!important;width:220px!important;height:75px!important;background:radial-gradient(ellipse,#ffd76655,#67f7ba22,transparent 70%)!important;filter:blur(14px)!important}
+.chest-new{position:relative!important;width:250px!important;height:185px!important;transform:rotateY(-14deg) rotateX(8deg)!important;transform-style:preserve-3d!important;filter:drop-shadow(0 26px 22px #000b)!important;animation:chestPremiumFloat 3s ease-in-out infinite!important}
+.chest-new-box{position:absolute!important;bottom:0!important;width:250px!important;height:118px!important;border-radius:18px 18px 28px 28px!important;background:linear-gradient(110deg,#6b2b15,#c65e26 18%,#f7ba54 36%,#a34819 55%,#e99a37 78%,#65240d)!important;border:9px solid #f9d878!important;box-shadow:inset 0 0 0 4px #9e5424,inset 0 -18px 0 #6b2d13,0 10px 0 #914716,0 17px 0 #4a230f!important}
+.chest-new-lid{position:absolute!important;top:0!important;left:0!important;width:250px!important;height:90px!important;border-radius:25px 25px 12px 12px!important;border:9px solid #ffe38b!important;background:linear-gradient(135deg,#ffedab,#dd8731 25%,#9e4517 52%,#f3b84e 78%,#76300e)!important;box-shadow:inset 0 7px 22px #fff5,0 6px 0 #934919!important;transform-origin:bottom center!important;z-index:4!important}
+.chest-new-top{display:flex!important;justify-content:space-around!important;align-items:center!important;height:60px!important;color:#fff1ae!important;font-size:25px!important;text-shadow:0 3px 8px #4a230d!important}
+.chest-new-band,.chest-band-front{position:absolute!important;left:50%!important;top:0!important;transform:translateX(-50%)!important;width:38px!important;height:100%!important;background:linear-gradient(90deg,#9d6a24,#ffe88e,#b27827)!important;border-left:3px solid #fff4!important;border-right:3px solid #6b3b15!important}
+.chest-band-front{height:100%!important;z-index:2!important}
+.chest-new-lock{position:absolute!important;z-index:5!important;top:50%!important;left:50%!important;transform:translate(-50%,-50%)!important;width:58px!important;height:58px!important;border-radius:17px!important;display:grid!important;place-items:center!important;background:linear-gradient(145deg,#fff7c2,#edb848 55%,#a66b20)!important;border:5px solid #fff0a5!important;box-shadow:0 5px 0 #80521d,0 0 22px #ffef9b!important;color:#77430d!important;font-size:26px!important}
+.chest-new-corner{position:absolute!important;bottom:-5px!important;width:26px!important;height:55px!important;border-radius:12px!important;background:linear-gradient(90deg,#8d491c,#ffe78a,#a05b22)!important;border:3px solid #ffdf7a!important;z-index:3!important}
+.chest-corner-left{left:15px!important}.chest-corner-right{right:15px!important}
+.chest-spark{position:absolute!important;color:#fff6c1!important;font-size:26px!important;text-shadow:0 0 14px #ffd45b!important;animation:chestSparkle 1.8s ease-in-out infinite!important}
+.chest-spark-one{top:15px!important;left:20px!important}.chest-spark-two{top:50px!important;right:8px!important;animation-delay:.5s!important}.chest-spark-three{bottom:12px!important;left:35px!important;animation-delay:.9s!important}
+.pit-play-chest-opening .chest-new-lid{animation:chestPremiumOpen .8s cubic-bezier(.2,.7,.2,1) forwards!important}
+@keyframes chestPremiumOpen{to{transform:translateY(-65px) rotateX(65deg)!important}}
+@keyframes chestPremiumFloat{0%,100%{transform:rotateY(-14deg) rotateX(8deg) translateY(0)}50%{transform:rotateY(-14deg) rotateX(8deg) translateY(-10px)}}
+@keyframes chestSparkle{0%,100%{opacity:.35;transform:scale(.75)}50%{opacity:1;transform:scale(1.25)}}
