@@ -832,3 +832,11 @@ main{padding:20px!important}
 @keyframes pitEmeraldFlow{0%{transform:translate(-6%,-5%) rotate(-8deg) scale(.92);opacity:.75}50%{opacity:1}100%{transform:translate(7%,6%) rotate(12deg) scale(1.12);opacity:.88}}
 @keyframes pitEmeraldParticles{0%{transform:translate3d(0,0,0);background-position:0 0,52px 29px,0 0,100% 100%}100%{transform:translate3d(-80px,-220px,0);background-position:0 -105px,52px -180px,100% 100%,0 0}}
 @media(prefers-reduced-motion:reduce){.pit-play-modal-backdrop:before,.pit-play-modal-backdrop:after{animation:none!important}}
+
+/* Fundo verde animado premium aplicado também à tela inicial */
+body{background:#03130b!important;background-image:radial-gradient(ellipse at 15% 20%,rgba(0,255,140,.18),transparent 38%),radial-gradient(ellipse at 85% 75%,rgba(48,220,110,.15),transparent 42%),linear-gradient(135deg,#03130b,#06251a,#03130b)!important;background-size:180% 180%!important;animation:pitGreenAmbient 16s ease-in-out infinite alternate!important;}
+.shell{position:relative;isolation:isolate;background:linear-gradient(160deg,rgba(5,34,22,.94),rgba(3,18,13,.92))!important;}
+.shell:before{content:"";position:fixed;z-index:-1;pointer-events:none;inset:0;opacity:.75;background:radial-gradient(circle at 15% 25%,rgba(76,255,155,.18),transparent 28%),radial-gradient(circle at 80% 35%,rgba(0,190,120,.16),transparent 30%),radial-gradient(circle at 50% 90%,rgba(160,255,80,.10),transparent 25%);background-size:180% 180%;animation:pitGreenAurora 18s ease-in-out infinite alternate;}
+@keyframes pitGreenAmbient{0%{background-position:0% 20%}100%{background-position:100% 80%}}
+@keyframes pitGreenAurora{0%{transform:translate3d(-2%,0,0) scale(1);filter:hue-rotate(0deg)}100%{transform:translate3d(2%,1%,0) scale(1.05);filter:hue-rotate(16deg)}}
+@media(prefers-reduced-motion:reduce){body,.shell:before{animation:none!important}}
