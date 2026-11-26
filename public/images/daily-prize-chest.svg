@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520">
+<defs>
+ <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#53a9ff"/><stop offset=".2" stop-color="#1453c7"/><stop offset=".55" stop-color="#062a79"/><stop offset=".8" stop-color="#174fbb"/><stop offset="1" stop-color="#03194f"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#75420b"/><stop offset=".18" stop-color="#ffd66c"/><stop offset=".36" stop-color="#b87a22"/><stop offset=".58" stop-color="#fff0a6"/><stop offset=".78" stop-color="#c0872b"/><stop offset="1" stop-color="#70410c"/></linearGradient>
+ <linearGradient id="lid" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5faeff"/><stop offset=".35" stop-color="#1a58bd"/><stop offset="1" stop-color="#061b54"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#52c8ff" stop-opacity=".75"/><stop offset="1" stop-color="#3a94ff" stop-opacity="0"/></radialGradient>
+ <filter id="shadow"><feGaussianBlur stdDeviation="12"/></filter>
+</defs>
+<ellipse cx="320" cy="445" rx="225" ry="42" fill="#06132b" opacity=".45" filter="url(#shadow)"/>
+<ellipse cx="320" cy="442" rx="225" ry="50" fill="url(#glow)" opacity=".8"/>
+<!-- chest body -->
+<path d="M125 226 Q125 195 160 195 H480 Q515 195 515 226 V390 Q515 425 480 425 H160 Q125 425 125 390Z" fill="url(#blue)" stroke="url(#gold)" stroke-width="24"/>
+<path d="M150 245 H490 V380 Q490 400 470 400 H170 Q150 400 150 380Z" fill="none" stroke="#87c8ff" stroke-width="5" opacity=".65"/>
+<path d="M160 265 Q320 310 480 265" fill="none" stroke="#5faeff" stroke-width="9" opacity=".5"/>
+<!-- gold vertical reinforcement -->
+<path d="M285 215 H355 V420 H285Z" fill="url(#gold)" stroke="#ffedaa" stroke-width="5"/>
+<path d="M300 225 H340 V412 H300Z" fill="url(#blue)" opacity=".65"/>
+<!-- curved lid -->
+<path d="M112 238 L112 182 Q112 86 205 62 Q320 28 435 62 Q528 86 528 182 L528 238 Q320 265 112 238Z" fill="url(#lid)" stroke="url(#gold)" stroke-width="26"/>
+<path d="M137 192 Q137 105 218 83 Q320 49 422 83 Q503 105 503 192" fill="none" stroke="#b5ddff" stroke-width="7" opacity=".65"/>
+<path d="M145 210 Q320 246 495 210" fill="none" stroke="#f8d879" stroke-width="9"/>
+<!-- scroll ornament -->
+<g fill="none" stroke="url(#gold)" stroke-width="14" stroke-linecap="round">
+ <path d="M168 160 Q205 110 250 150 Q275 170 245 190 Q210 210 185 178 Q173 165 190 151"/>
+ <path d="M472 160 Q435 110 390 150 Q365 170 395 190 Q430 210 455 178 Q467 165 450 151"/>
+ <path d="M250 100 Q285 75 320 100 Q355 75 390 100"/>
+ <path d="M225 222 Q260 250 280 215 M415 222 Q380 250 360 215"/>
+</g>
+<!-- corner plates -->
+<g fill="url(#gold)" stroke="#fff1b6" stroke-width="5">
+ <path d="M122 198 L160 180 L168 245 L125 260Z"/><path d="M518 198 L480 180 L472 245 L515 260Z"/>
+ <path d="M135 380 L170 405 L145 430 L115 400Z"/><path d="M505 380 L470 405 L495 430 L525 400Z"/>
+</g>
+<!-- gem lock -->
+<path d="M282 218 L358 218 L376 270 L320 315 L264 270Z" fill="url(#gold)" stroke="#fff0ae" stroke-width="8"/>
+<path d="M294 235 L346 235 L360 268 L320 298 L280 268Z" fill="#0d3d9c" stroke="#8dd5ff" stroke-width="6"/>
+<path d="M320 245 L344 269 L320 293 L296 269Z" fill="#53baff" stroke="#fff0a5" stroke-width="5"/>
+<!-- rivets -->
+<g fill="#fff0b5"><circle cx="160" cy="235" r="9"/><circle cx="480" cy="235" r="9"/><circle cx="155" cy="390" r="9"/><circle cx="485" cy="390" r="9"/></g>
+<!-- metallic side handles -->
+<path d="M90 280 Q50 280 50 330 Q50 365 92 365 M550 280 Q590 280 590 330 Q590 365 548 365" fill="none" stroke="url(#gold)" stroke-width="22" stroke-linecap="round"/>
+<path d="M90 280 Q50 280 50 330 Q50 365 92 365 M550 280 Q590 280 590 330 Q590 365 548 365" fill="none" stroke="#fff0b8" stroke-width="5" stroke-linecap="round"/>
+</svg>
