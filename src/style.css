@@ -731,3 +731,24 @@ main{padding:20px!important}
 @keyframes pitBackdropStars{0%{transform:translateY(0)}100%{transform:translateY(-140px)}}
 @keyframes pitWheelAura{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.pit-play-modal-backdrop:before,.pit-play-modal-backdrop:after,.pit-play-modal-backdrop .pit-wheel-reference-stage:after{animation:none!important}}
+
+/* DEEP BLUE animated backdrop upgrade */
+.pit-play-modal-backdrop{
+ background-color:#030b18!important;
+ background-image:radial-gradient(ellipse at 50% 50%,rgba(7,35,77,.42),rgba(1,5,13,.94) 72%)!important;
+}
+.pit-play-modal-backdrop:before{
+ inset:-45%!important;
+ background:radial-gradient(circle at 18% 28%,rgba(0,136,255,.36),transparent 27%),radial-gradient(circle at 76% 34%,rgba(55,96,255,.31),transparent 31%),radial-gradient(circle at 52% 78%,rgba(0,205,255,.22),transparent 29%),radial-gradient(circle at 84% 82%,rgba(24,72,200,.26),transparent 35%)!important;
+ filter:blur(42px)!important;animation:pitBlueNebula 18s ease-in-out infinite alternate!important;
+}
+.pit-play-modal-backdrop:after{
+ background-image:radial-gradient(circle,rgba(166,220,255,.9) 0 1px,transparent 2px),radial-gradient(circle,rgba(50,155,255,.7) 0 1.5px,transparent 3px),linear-gradient(115deg,transparent 40%,rgba(55,155,255,.08) 50%,transparent 60%)!important;
+ background-size:97px 97px,173px 173px,200% 200%!important;background-position:0 0,48px 23px,0 0!important;
+ opacity:.38!important;animation:pitBlueParticles 24s linear infinite!important;
+}
+@keyframes pitBlueNebula{0%{transform:translate(-5%,-4%) rotate(-8deg) scale(.9);opacity:.72}50%{opacity:1}100%{transform:translate(5%,4%) rotate(12deg) scale(1.12);opacity:.88}}
+@keyframes pitBlueParticles{0%{transform:translate3d(0,0,0);background-position:0 0,48px 23px,0 0}100%{transform:translate3d(-60px,-180px,0);background-position:0 -97px,48px -173px,100% 100%}}
+.pit-play-modal-backdrop .pit-play-modal:has(.pit-wheel-reference-stage){box-shadow:0 28px 90px #000d,0 0 45px rgba(28,126,255,.2),inset 0 1px #ffffff18!important}
+.pit-play-modal-backdrop .pit-wheel-reference-stage{box-shadow:0 0 0 1px rgba(116,191,255,.38),0 0 45px rgba(35,136,255,.3),inset 0 0 28px #0009!important}
+@media(prefers-reduced-motion:reduce){.pit-play-modal-backdrop:before,.pit-play-modal-backdrop:after{animation:none!important}}
