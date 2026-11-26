@@ -467,3 +467,27 @@ main{padding:20px!important}
 .pit-play-action{width:100%!important;min-height:62px!important;border-radius:18px!important;font-size:17px!important;font-weight:950!important;letter-spacing:.6px!important;background:linear-gradient(135deg,#b7f47e,#77d653)!important;color:#102017!important;border:1px solid #dcffb7!important;box-shadow:0 6px 0 #4c9136,0 13px 25px #0005!important}
 .pit-play-result{display:flex!important;flex-direction:column!important;align-items:center!important;gap:14px!important;margin:20px 0 4px!important;padding:22px 17px!important;border:1px solid #75b77b55!important;border-radius:22px!important;background:linear-gradient(150deg,#143724,#091a11)!important;box-shadow:0 12px 30px #0005,inset 0 1px #ffffff16!important}.pit-play-result h3{margin:0!important;font-size:22px!important;color:#b5f17c!important}.pit-play-result strong{font-size:clamp(17px,4vw,21px)!important;line-height:1.5!important;color:#f0f8e8!important;overflow-wrap:anywhere!important}.pit-play-result button{width:100%!important;min-height:56px!important;border-radius:16px!important}
 @media(max-width:430px){.pit-play-modal{padding:27px 17px 22px!important}.pit-play-wheel-wrap{width:min(290px,72vw)!important;height:min(290px,72vw)!important}.pit-3d-chest{transform:scale(.88) rotateX(20deg) rotateY(-17deg)!important}}
+
+/* REDESIGN FINAL ROLETa E BAU - NOVA IDENTIDADE VISUAL */
+.pit-wheel-disc.pit-play-wheel{transform:rotateX(0)!important;border:12px solid #f9d66c!important;outline:5px solid #53371b!important;outline-offset:2px!important;background:conic-gradient(from -30deg,#ff6b58 0 60deg,#ffc84b 60deg 120deg,#45d9a0 120deg 180deg,#47b3ff 180deg 240deg,#ad68ff 240deg 300deg,#ff9d46 300deg 360deg)!important;box-shadow:0 8px 0 #bb812f,0 16px 0 #633b18,0 24px 34px #000b,inset 0 0 0 3px #fff9,inset 0 0 30px #fff5!important}
+.pit-wheel-disc.pit-play-wheel:after{display:none!important}
+.pit-wheel-disc.pit-play-wheel:before{inset:8px!important;border:3px solid #fff8d9!important}
+.pit-wheel-label{position:absolute!important;width:90px!important;height:40px!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:15px!important;font-weight:1000!important;color:#fff!important;text-shadow:0 2px 4px #000b!important;letter-spacing:.3px!important;filter:none!important;z-index:3!important}
+.pit-wheel-label-1{top:13%;left:50%;transform:translateX(-50%) rotate(0deg)!important}
+.pit-wheel-label-2{top:29%;right:3%;transform:rotate(60deg)!important}
+.pit-wheel-label-3{bottom:17%;right:5%;transform:rotate(120deg)!important}
+.pit-wheel-label-4{bottom:13%;left:50%;transform:translateX(-50%) rotate(180deg)!important}
+.pit-wheel-label-5{bottom:29%;left:3%;transform:rotate(-60deg)!important}
+.pit-wheel-label-6{top:29%;left:3%;transform:rotate(-120deg)!important}
+.pit-wheel-hub{position:absolute!important;z-index:5!important;width:76px!important;height:76px!important;border-radius:50%!important;display:grid!important;place-items:center!important;border:7px solid #e6bd54!important;background:radial-gradient(circle at 30% 20%,#f9fff2,#8ee1b5 35%,#21664b 80%)!important;box-shadow:0 6px 0 #754a1b,0 0 20px #e8ffb8!important;color:#153d2c!important;font-weight:1000!important;font-size:16px!important}
+.pit-play-wheel-wrap{width:min(350px,78vw)!important;height:min(350px,78vw)!important;margin:26px auto 34px!important}
+.pit-play-wheel-spinning{animation:pitFreshSpin2 4.8s cubic-bezier(.08,.75,.12,1) forwards!important}
+@keyframes pitFreshSpin2{0%{transform:rotateZ(0)}15%{transform:rotateZ(720deg)}100%{transform:rotateZ(1800deg)}}
+.pit-play-chest{min-height:280px!important}
+.pit-3d-chest{width:270px!important;height:220px!important;transform:rotateX(8deg) rotateY(-8deg)!important;animation:pitChestNewFloat 2.7s ease-in-out infinite!important}
+.pit-3d-chest-body{left:8px!important;width:254px!important;height:132px!important;border-radius:18px 18px 30px 30px!important;border:8px solid #ffdc68!important;background:linear-gradient(90deg,#5a250b,#d87920 22%,#ffcb62 48%,#b75b16 72%,#61280a)!important;box-shadow:inset 0 0 0 4px #9a561c,inset 0 -25px 0 #54230b,inset 0 12px 24px #fff5,0 9px 0 #8a4918,0 17px 0 #48220d!important}
+.pit-3d-chest-lid{background:linear-gradient(135deg,#ffe99a 0%,#db8529 25%,#8d3e10 48%,#f7bd56 75%,#6b2c0a)!important;border:9px solid #ffdf79!important;border-radius:26px 26px 16px 16px!important;box-shadow:inset 0 5px 18px #fff5,0 0 22px #ffce5c55!important}
+.pit-chest-gem{display:grid!important;place-items:center!important;width:55px!important;height:55px!important;border-radius:16px!important;background:linear-gradient(145deg,#f9fff3,#61e5a6)!important;border:5px solid #ffdf78!important;box-shadow:0 0 22px #7dffbb!important}
+.pit-play-chest-opening .pit-3d-chest-lid{animation:pitChestLidOpen .75s ease-in forwards!important}
+@keyframes pitChestLidOpen{to{transform:translateY(-55px) rotateX(65deg)!important}}
+@keyframes pitChestNewFloat{0%,100%{transform:rotateX(8deg) rotateY(-8deg) translateY(0)}50%{transform:rotateX(8deg) rotateY(-8deg) translateY(-10px)}}
