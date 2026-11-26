@@ -596,3 +596,15 @@ main{padding:20px!important}
 /* Baú Diário: arte nova de madeira com moedas, sem gemas */
 .pit-gift-chest-stage{height:320px!important;width:min(360px,88vw)!important;overflow:visible!important;}
 .pit-gift-chest-svg{object-fit:contain!important;width:100%!important;height:100%!important;filter:drop-shadow(0 16px 20px #0008)!important;animation:pitGiftHover 2.6s ease-in-out infinite!important;}
+
+/* Ref-match: modal do Baú Diário em destaque, grande e cinematográfico */
+.pit-play-modal:has(.pit-gift-chest-stage){width:min(760px,calc(100vw - 24px))!important;padding:32px 38px 30px!important;border-radius:34px!important;background:radial-gradient(ellipse at 50% 58%,#06391b 0%,#041b10 68%,#021009 100%)!important;border:2px solid #8be77a!important;border-top:4px solid #d5ff74!important;box-shadow:0 0 45px #7cff5220,0 35px 100px #000e,inset 0 0 20px #8cff4315!important}
+.pit-play-modal:has(.pit-gift-chest-stage) h2.daily-chest-title{font-size:clamp(30px,5vw,54px)!important;display:flex!important;justify-content:center!important;align-items:center!important;gap:20px!important;color:#c4ff52!important;letter-spacing:-1px!important;text-shadow:0 0 18px #a8ff4a55!important}
+.daily-chest-title span{color:#ffc42b!important;font-size:.8em!important;text-shadow:0 0 12px #ffbd3a!important}
+.pit-play-modal:has(.pit-gift-chest-stage)>p{font-size:clamp(16px,2.5vw,24px)!important;margin:0 auto 8px!important;color:#f1fff1!important}
+.pit-gift-chest-stage{width:min(600px,92vw)!important;height:clamp(300px,46vw,520px)!important;margin:0 auto 12px!important;position:relative!important;overflow:visible!important}
+.pit-gift-chest-stage .pit-gift-chest-svg{width:100%!important;height:100%!important;object-fit:contain!important;transform:scale(1.04)!important;filter:drop-shadow(0 22px 22px #0009) drop-shadow(0 0 28px #ffcf4b35)!important;animation:pitChestShowcaseFloat 3.2s ease-in-out infinite!important}
+.pit-gift-chest-stage .gift-shine{font-size:clamp(24px,4vw,40px)!important;top:12%!important;left:8%!important}.pit-gift-chest-stage .gift-shine-two{left:auto!important;right:8%!important;top:23%!important}
+.pit-play-modal:has(.pit-gift-chest-stage) .pit-play-action{min-height:82px!important;border-radius:26px!important;font-size:clamp(20px,3vw,30px)!important;letter-spacing:1px!important;background:linear-gradient(180deg,#c8ff42,#7dd600 62%,#5cb900)!important;color:#102800!important;border:3px solid #d8ff7a!important;box-shadow:0 7px 0 #447c05,0 0 28px #9dff3926!important;text-shadow:0 1px #fff5!important}
+@keyframes pitChestShowcaseFloat{0%,100%{transform:scale(1.04) translateY(0)}50%{transform:scale(1.04) translateY(-12px)}}
+@media(max-width:560px){.pit-play-modal:has(.pit-gift-chest-stage){padding:25px 15px 22px!important}.pit-gift-chest-stage{height:clamp(290px,70vw,420px)!important}.daily-chest-title span{display:none!important}}
