@@ -761,3 +761,9 @@ main{padding:20px!important}
 @keyframes pitCinematicBlue{0%{transform:translate(-7%,-5%) rotate(-10deg) scale(.94);filter:blur(34px);opacity:.75}50%{transform:translate(3%,3%) rotate(5deg) scale(1.04);opacity:1}100%{transform:translate(8%,6%) rotate(12deg) scale(1.12);filter:blur(42px);opacity:.86}}
 @keyframes pitCinematicStars{0%{transform:translate3d(0,0,0);background-position:0 0,52px 29px,0 0,100% 100%}100%{transform:translate3d(-90px,-220px,0);background-position:0 -110px,52px -190px,100% 100%,0 0}}
 @media(prefers-reduced-motion:reduce){.pit-play-modal-backdrop:before,.pit-play-modal-backdrop:after{animation:none!important}}
+
+/* FIX DEFINITIVO — eliminar barra horizontal no modal da Roleta */
+.pit-play-modal-backdrop .pit-play-modal:has(.pit-wheel-reference-stage){width:min(480px,calc(100vw - 24px))!important;max-width:calc(100vw - 24px)!important;box-sizing:border-box!important;overflow-x:hidden!important;overflow-y:hidden!important;}
+.pit-play-modal-backdrop .pit-play-modal:has(.pit-wheel-reference-stage) *{max-width:100%!important;box-sizing:border-box!important;}
+.pit-play-modal-backdrop .pit-play-modal:has(.pit-wheel-reference-stage) .pit-wheel-reference-stage{width:min(330px,calc(100% - 24px),80vw)!important;margin:16px auto 22px!important;flex-shrink:1!important;}
+.pit-play-modal-backdrop .pit-play-modal:has(.pit-wheel-reference-stage) .pit-play-action{width:100%!important;max-width:100%!important;margin:0 auto!important;}
