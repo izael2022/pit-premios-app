@@ -639,3 +639,12 @@ main{padding:20px!important}
 .pit-play-modal:has(.pit-gift-chest-stage) .pit-play-action{width:min(100%,440px)!important;height:58px!important;min-height:58px!important;max-height:58px!important;flex:0 0 58px!important;margin:4px 0 0!important;padding:10px 18px!important;border-radius:16px!important;font-size:clamp(16px,2vw,20px)!important;}
 @media(max-height:700px){.pit-play-modal:has(.pit-gift-chest-stage){padding:14px 20px 16px!important;gap:4px!important}.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{height:180px!important;max-height:180px!important}}
 @media(max-width:560px){.pit-play-modal:has(.pit-gift-chest-stage){width:calc(100vw - 18px)!important;padding:16px 12px 16px!important}.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{height:200px!important;max-height:200px!important}}
+
+
+/* FIX 26-11: manter baú inteiro visível, sem cortar ou sobrepor o botão */
+.pit-play-modal:has(.pit-gift-chest-stage){height:auto!important;max-height:calc(100dvh - 28px)!important;overflow-y:auto!important;overflow-x:hidden!important;justify-content:flex-start!important;gap:8px!important;padding:22px 24px 22px!important;}
+.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{width:min(380px,100%)!important;height:clamp(280px,38vh,340px)!important;min-height:280px!important;max-height:340px!important;overflow:visible!important;flex:0 0 auto!important;margin:4px auto 8px!important;}
+.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-svg{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;transform:none!important;overflow:visible!important;}
+.pit-play-modal:has(.pit-gift-chest-stage) .pit-play-action{position:relative!important;z-index:2!important;flex:0 0 auto!important;margin:0 auto!important;}
+@media(max-height:760px){.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{height:260px!important;min-height:260px!important;max-height:260px!important}}
+@media(max-width:560px){.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{height:260px!important;min-height:260px!important;max-height:260px!important}}
