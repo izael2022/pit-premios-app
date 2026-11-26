@@ -840,3 +840,8 @@ body{background:#03130b!important;background-image:radial-gradient(ellipse at 15
 @keyframes pitGreenAmbient{0%{background-position:0% 20%}100%{background-position:100% 80%}}
 @keyframes pitGreenAurora{0%{transform:translate3d(-2%,0,0) scale(1);filter:hue-rotate(0deg)}100%{transform:translate3d(2%,1%,0) scale(1.05);filter:hue-rotate(16deg)}}
 @media(prefers-reduced-motion:reduce){body,.shell:before{animation:none!important}}
+
+/* HOME: reforço da animação ambiente, aurora e partículas luminosas */
+body{background-image:radial-gradient(circle,rgba(120,255,180,.55) 0 1px,transparent 2px),radial-gradient(circle,rgba(60,255,130,.32) 0 1.5px,transparent 3px),radial-gradient(ellipse at 20% 20%,rgba(0,255,130,.22),transparent 35%),radial-gradient(ellipse at 80% 70%,rgba(60,255,100,.20),transparent 38%),linear-gradient(130deg,#02130b,#062b1c,#03150d)!important;background-size:150px 150px,240px 240px,200% 200%,200% 200%,300% 300%!important;background-position:0 0,80px 40px,0 0,100% 100%,0 0!important;animation:pitHomeMotion 24s linear infinite!important;}
+@keyframes pitHomeMotion{0%{background-position:0 0,80px 40px,0% 0%,100% 100%,0% 0%}100%{background-position:0 -150px,80px -240px,100% 80%,0% 20%,100% 100%}}
+@media(prefers-reduced-motion:reduce){body{animation:none!important}}
