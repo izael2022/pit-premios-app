@@ -717,3 +717,17 @@ main{padding:20px!important}
 .pit-play-modal-backdrop .pit-play-modal:has(.pit-gift-chest-stage){
  box-shadow:0 28px 90px #000c,0 0 38px #d8a34b18,inset 0 1px #ffffff18!important;
 }
+
+
+/* ANIMATED PREMIUM AMBIENCE — modal backdrop and wheel stage */
+.pit-play-modal-backdrop{position:fixed!important;isolation:isolate!important;overflow:hidden!important;}
+.pit-play-modal-backdrop:before,.pit-play-modal-backdrop:after{content:"";position:absolute;inset:-30%;pointer-events:none;z-index:0;border-radius:50%;}
+.pit-play-modal-backdrop:before{background:radial-gradient(ellipse at 25% 30%,rgba(52,149,255,.23),transparent 36%),radial-gradient(ellipse at 75% 68%,rgba(32,224,164,.15),transparent 38%),radial-gradient(ellipse at 50% 50%,rgba(255,197,84,.09),transparent 60%);filter:blur(28px);animation:pitBackdropFlow 16s ease-in-out infinite alternate;}
+.pit-play-modal-backdrop:after{background-image:radial-gradient(circle,rgba(255,255,255,.45) 0 1px,transparent 1.8px),radial-gradient(circle,rgba(120,210,255,.35) 0 1px,transparent 2px);background-size:85px 85px,137px 137px;background-position:0 0,35px 60px;opacity:.24;animation:pitBackdropStars 28s linear infinite;}
+.pit-play-modal-backdrop .pit-play-modal{position:relative!important;z-index:1!important;}
+.pit-play-modal-backdrop .pit-wheel-reference-stage{overflow:visible!important;}
+.pit-play-modal-backdrop .pit-wheel-reference-stage:after{content:"";position:absolute;inset:-10px;border-radius:50%;pointer-events:none;border:1px solid rgba(126,211,255,.24);box-shadow:0 0 16px rgba(87,184,255,.12);background:conic-gradient(from 0deg,transparent 0 72%,rgba(110,205,255,.12) 85%,transparent 100%);animation:pitWheelAura 12s linear infinite;}
+@keyframes pitBackdropFlow{0%{transform:translate(-3%,-2%) rotate(0deg) scale(.94)}100%{transform:translate(3%,2%) rotate(16deg) scale(1.08)}}
+@keyframes pitBackdropStars{0%{transform:translateY(0)}100%{transform:translateY(-140px)}}
+@keyframes pitWheelAura{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.pit-play-modal-backdrop:before,.pit-play-modal-backdrop:after,.pit-play-modal-backdrop .pit-wheel-reference-stage:after{animation:none!important}}
