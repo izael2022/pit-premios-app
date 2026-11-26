@@ -792,3 +792,43 @@ main{padding:20px!important}
 @keyframes surpriseGlow{from{transform:scale(.9) rotate(-5deg);opacity:.7}to{transform:scale(1.12) rotate(8deg);opacity:1}}
 @media(max-height:650px){.pit-surprise-popup{min-height:0;padding:22px 20px;gap:12px}.pit-surprise-gift{height:180px;transform:scale(.82)}}
 @media(prefers-reduced-motion:reduce){.pit-surprise-popup:before,.pit-surprise-gift,.pit-surprise-spark{animation:none!important}}
+
+
+/* PIT PREMIOS — ambientacao verde premium animada para Roleta e Bau Diario */
+.pit-play-modal-backdrop{
+ background:#020d08!important;
+ background-image:radial-gradient(ellipse at 50% 50%,rgba(0,80,42,.34),rgba(1,9,5,.95) 75%)!important;
+}
+.pit-play-modal-backdrop:before{
+ inset:-30%!important;border-radius:0!important;
+ background:radial-gradient(ellipse at 15% 20%,rgba(42,255,125,.34),transparent 30%),radial-gradient(ellipse at 82% 24%,rgba(0,190,100,.27),transparent 34%),radial-gradient(ellipse at 55% 80%,rgba(126,255,30,.22),transparent 31%),radial-gradient(ellipse at 22% 82%,rgba(0,125,70,.35),transparent 38%),linear-gradient(120deg,transparent 38%,rgba(110,255,140,.10) 50%,transparent 65%)!important;
+ filter:blur(38px)!important;animation:pitEmeraldFlow 15s ease-in-out infinite alternate!important;
+}
+.pit-play-modal-backdrop:after{
+ inset:-12%!important;border-radius:0!important;
+ background-image:radial-gradient(circle,rgba(180,255,205,.75) 0 1px,transparent 2px),radial-gradient(circle,rgba(50,255,135,.65) 0 1.5px,transparent 3px),linear-gradient(110deg,transparent 20%,rgba(40,255,125,.13) 48%,transparent 65%),linear-gradient(25deg,transparent 35%,rgba(100,255,40,.08) 50%,transparent 65%)!important;
+ background-size:105px 105px,180px 180px,220% 220%,180% 180%!important;background-position:0 0,52px 29px,0 0,100% 100%!important;opacity:.45!important;animation:pitEmeraldParticles 24s linear infinite!important;
+}
+.pit-play-modal-backdrop .pit-play-modal:has(.pit-wheel-reference-stage),
+.pit-play-modal-backdrop .pit-play-modal:has(.pit-gift-chest-stage){
+ background:linear-gradient(155deg,rgba(8,44,29,.96),rgba(4,24,17,.97) 58%,rgba(2,13,9,.98))!important;
+ border-color:rgba(112,255,166,.42)!important;
+ box-shadow:0 28px 90px #000d,0 0 42px rgba(0,255,125,.15),inset 0 1px #ffffff18!important;
+}
+.pit-play-modal-backdrop .pit-wheel-reference-stage{
+ background:radial-gradient(ellipse at 50% 40%,rgba(31,170,100,.22),transparent 65%),linear-gradient(145deg,rgba(8,45,31,.85),rgba(2,16,11,.95))!important;
+ border-color:rgba(93,255,168,.4)!important;
+ box-shadow:0 0 0 1px rgba(116,255,175,.2),0 0 42px rgba(35,255,136,.16),inset 0 0 28px #0009!important;
+}
+.pit-play-modal-backdrop .pit-wheel-reference-stage:after{
+ border-color:rgba(110,255,160,.25)!important;box-shadow:0 0 18px rgba(87,255,150,.15)!important;
+ background:conic-gradient(from 0deg,transparent 0 72%,rgba(110,255,160,.15) 85%,transparent 100%)!important;
+}
+.pit-play-modal-backdrop .pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{
+ background:radial-gradient(ellipse at 50% 42%,rgba(36,170,100,.22),transparent 65%),linear-gradient(145deg,rgba(8,45,31,.84),rgba(2,16,11,.95))!important;
+ border-color:rgba(100,255,160,.32)!important;
+ box-shadow:0 0 35px rgba(0,255,125,.12),inset 0 0 28px #0008!important;
+}
+@keyframes pitEmeraldFlow{0%{transform:translate(-6%,-5%) rotate(-8deg) scale(.92);opacity:.75}50%{opacity:1}100%{transform:translate(7%,6%) rotate(12deg) scale(1.12);opacity:.88}}
+@keyframes pitEmeraldParticles{0%{transform:translate3d(0,0,0);background-position:0 0,52px 29px,0 0,100% 100%}100%{transform:translate3d(-80px,-220px,0);background-position:0 -105px,52px -180px,100% 100%,0 0}}
+@media(prefers-reduced-motion:reduce){.pit-play-modal-backdrop:before,.pit-play-modal-backdrop:after{animation:none!important}}
