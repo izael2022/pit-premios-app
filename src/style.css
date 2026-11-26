@@ -608,3 +608,12 @@ main{padding:20px!important}
 .pit-play-modal:has(.pit-gift-chest-stage) .pit-play-action{min-height:82px!important;border-radius:26px!important;font-size:clamp(20px,3vw,30px)!important;letter-spacing:1px!important;background:linear-gradient(180deg,#c8ff42,#7dd600 62%,#5cb900)!important;color:#102800!important;border:3px solid #d8ff7a!important;box-shadow:0 7px 0 #447c05,0 0 28px #9dff3926!important;text-shadow:0 1px #fff5!important}
 @keyframes pitChestShowcaseFloat{0%,100%{transform:scale(1.04) translateY(0)}50%{transform:scale(1.04) translateY(-12px)}}
 @media(max-width:560px){.pit-play-modal:has(.pit-gift-chest-stage){padding:25px 15px 22px!important}.pit-gift-chest-stage{height:clamp(290px,70vw,420px)!important}.daily-chest-title span{display:none!important}}
+
+/* AJUSTE FINAL: modal do baú diário para caber como na referência */
+.pit-play-modal:has(.pit-gift-chest-stage){width:min(760px,calc(100vw - 28px))!important;max-height:min(900px,calc(100dvh - 32px))!important;overflow:hidden!important;padding:26px 32px 24px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;}
+.pit-play-modal:has(.pit-gift-chest-stage)>p{margin:0 0 2px!important;line-height:1.3!important;}
+.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{width:min(590px,100%)!important;height:min(490px,52vh)!important;min-height:300px!important;margin:0 auto 10px!important;flex:0 1 auto!important;}
+.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-svg{height:100%!important;width:100%!important;object-fit:contain!important;transform:scale(1.08)!important;}
+.pit-play-modal:has(.pit-gift-chest-stage) .pit-play-action{flex-shrink:0!important;min-height:78px!important;width:min(650px,100%)!important;margin-top:0!important;}
+@media(max-height:820px){.pit-play-modal:has(.pit-gift-chest-stage){padding:18px 24px 18px!important}.pit-play-modal:has(.pit-gift-chest-stage) h2.daily-chest-title{font-size:clamp(28px,4vw,42px)!important}.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{height:min(420px,43vh)!important;min-height:250px!important}}
+@media(max-width:560px){.pit-play-modal:has(.pit-gift-chest-stage){max-height:calc(100dvh - 20px)!important;padding:18px 14px 16px!important}.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{height:min(380px,43vh)!important;min-height:230px!important}}
