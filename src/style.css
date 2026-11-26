@@ -648,3 +648,12 @@ main{padding:20px!important}
 .pit-play-modal:has(.pit-gift-chest-stage) .pit-play-action{position:relative!important;z-index:2!important;flex:0 0 auto!important;margin:0 auto!important;}
 @media(max-height:760px){.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{height:260px!important;min-height:260px!important;max-height:260px!important}}
 @media(max-width:560px){.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{height:260px!important;min-height:260px!important;max-height:260px!important}}
+
+/* Baú Diário: proporção compacta, sem recorte nem barra interna no desktop */
+.pit-play-modal:has(.pit-gift-chest-stage){width:min(760px,calc(100vw - 30px))!important;max-height:min(88dvh,900px)!important;overflow:hidden!important;padding:28px 34px 24px!important;border-radius:30px!important}
+.pit-play-modal:has(.pit-gift-chest-stage) h2.daily-chest-title{font-size:clamp(26px,3.6vw,42px)!important;gap:14px!important;margin:0 0 7px!important}
+.pit-play-modal:has(.pit-gift-chest-stage)>p{font-size:clamp(14px,1.8vw,19px)!important;margin:0 auto 4px!important}
+.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{width:min(540px,85vw)!important;height:clamp(260px,38vh,390px)!important;margin:0 auto 8px!important}
+.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-svg{object-fit:contain!important;width:100%!important;height:100%!important;transform:none!important}
+.pit-play-modal:has(.pit-gift-chest-stage) .pit-play-action{min-height:66px!important;height:66px!important;border-radius:20px!important;font-size:clamp(18px,2.3vw,24px)!important;max-width:620px!important;margin:0 auto!important}
+@media(max-width:600px){.pit-play-modal:has(.pit-gift-chest-stage){max-height:90dvh!important;overflow:auto!important;padding:24px 16px 18px!important}.pit-play-modal:has(.pit-gift-chest-stage) .pit-gift-chest-stage{height:clamp(230px,36vh,320px)!important;width:min(450px,90vw)!important}.pit-play-modal:has(.pit-gift-chest-stage) .pit-play-action{min-height:58px!important;height:58px!important}}
