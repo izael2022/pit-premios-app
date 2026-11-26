@@ -845,3 +845,5 @@ body{background:#03130b!important;background-image:radial-gradient(ellipse at 15
 body{background-image:radial-gradient(circle,rgba(120,255,180,.55) 0 1px,transparent 2px),radial-gradient(circle,rgba(60,255,130,.32) 0 1.5px,transparent 3px),radial-gradient(ellipse at 20% 20%,rgba(0,255,130,.22),transparent 35%),radial-gradient(ellipse at 80% 70%,rgba(60,255,100,.20),transparent 38%),linear-gradient(130deg,#02130b,#062b1c,#03150d)!important;background-size:150px 150px,240px 240px,200% 200%,200% 200%,300% 300%!important;background-position:0 0,80px 40px,0 0,100% 100%,0 0!important;animation:pitHomeMotion 24s linear infinite!important;}
 @keyframes pitHomeMotion{0%{background-position:0 0,80px 40px,0% 0%,100% 100%,0% 0%}100%{background-position:0 -150px,80px -240px,100% 80%,0% 20%,100% 100%}}
 @media(prefers-reduced-motion:reduce){body{animation:none!important}}
+
+.pit-home-surprise-events{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}.pit-home-surprise-tile{border-color:#9b6b20;background:linear-gradient(135deg,#32220d,#17120a);box-shadow:0 0 22px rgba(245,173,42,.12)}.pit-home-surprise-art{filter:drop-shadow(0 0 8px rgba(255,188,60,.4))}
