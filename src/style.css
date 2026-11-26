@@ -767,3 +767,28 @@ main{padding:20px!important}
 .pit-play-modal-backdrop .pit-play-modal:has(.pit-wheel-reference-stage) *{max-width:100%!important;box-sizing:border-box!important;}
 .pit-play-modal-backdrop .pit-play-modal:has(.pit-wheel-reference-stage) .pit-wheel-reference-stage{width:min(330px,calc(100% - 24px),80vw)!important;margin:16px auto 22px!important;flex-shrink:1!important;}
 .pit-play-modal-backdrop .pit-play-modal:has(.pit-wheel-reference-stage) .pit-play-action{width:100%!important;max-width:100%!important;margin:0 auto!important;}
+
+/* BAU SURPRESA — modal de bônus automático, visual de presente */
+.pit-surprise-popup-backdrop{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.82);backdrop-filter:blur(8px)}
+.pit-surprise-popup{position:relative;width:min(460px,calc(100vw - 28px));min-height:560px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:36px 28px 28px;border-radius:28px;background:radial-gradient(ellipse at 50% 50%,#3c3b11 0%,#151b13 52%,#080e12 100%);color:#fff;border:1px solid #d7b527;box-shadow:0 30px 100px #000,0 0 40px #f5d22a26;text-align:center;overflow:hidden}
+.pit-surprise-popup:before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle at 25% 25%,#ffdf3822,transparent 35%),radial-gradient(circle at 75% 70%,#ff8b0020,transparent 38%);animation:surpriseGlow 8s ease-in-out infinite alternate;pointer-events:none}
+.pit-surprise-popup>*{position:relative}
+.pit-surprise-popup h2{margin:0;color:#ffeb39;font-size:clamp(27px,5vw,34px);font-weight:950;text-shadow:0 3px 12px #ffca0055}
+.pit-surprise-popup-points{margin:0;font-size:clamp(25px,5vw,36px);font-weight:950;color:#ffe13d}
+.pit-surprise-popup-close{position:absolute!important;right:16px;top:16px;width:38px;height:38px;border-radius:50%;border:1px solid #ffffff40;background:#ffffff12;color:white;font-size:23px;cursor:pointer}
+.pit-surprise-gift{position:relative;width:240px;height:250px;display:flex;align-items:center;justify-content:center;animation:surpriseGiftFloat 2.8s ease-in-out infinite}
+.pit-surprise-gift-box{position:relative;width:165px;height:150px;margin-top:70px;border-radius:18px 18px 24px 24px;background:linear-gradient(90deg,#ffb600,#ffd62d 48%,#ffad00);border:9px solid #090b10;box-shadow:0 0 45px #ffdf4580;overflow:visible}
+.pit-surprise-gift-box:before{content:"";position:absolute;left:-15px;right:-15px;top:-35px;height:44px;border-radius:14px;background:linear-gradient(180deg,#ffd83d,#ffb000);border:8px solid #090b10}
+.pit-surprise-gift-ribbon{position:absolute;left:42%;top:-34px;bottom:0;width:28px;background:linear-gradient(90deg,#ff3c20,#ef260e);border-radius:8px;z-index:2}
+.pit-surprise-gift-bow:before,.pit-surprise-gift-bow:after{content:"";position:absolute;width:82px;height:65px;top:-82px;background:#ff3b20;border:9px solid #090b10;border-radius:48% 48% 18% 48%;z-index:3}
+.pit-surprise-gift-bow:before{left:8px;transform:rotate(28deg)}.pit-surprise-gift-bow:after{right:8px;transform:rotate(-28deg) scaleX(-1)}
+.pit-surprise-spark{position:absolute;top:10px;left:15px;color:#ffe85a;font-size:32px;animation:surpriseSpark 1.7s ease-in-out infinite}
+.pit-surprise-spark.two{left:auto;right:12px;top:48px}
+.pit-surprise-popup-caption{color:#e6e3ca;font-size:14px}
+.pit-surprise-receive{width:min(100%,310px);height:62px;border-radius:18px;border:1px solid #ffe46b;background:linear-gradient(180deg,#ffd72d,#f4aa00);color:#452800;font-size:24px;font-weight:950;box-shadow:0 6px 0 #9a6500;cursor:pointer}
+.pit-surprise-receive:disabled{opacity:.7}
+@keyframes surpriseGiftFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes surpriseSpark{50%{opacity:.35;transform:scale(.7) rotate(20deg)}}
+@keyframes surpriseGlow{from{transform:scale(.9) rotate(-5deg);opacity:.7}to{transform:scale(1.12) rotate(8deg);opacity:1}}
+@media(max-height:650px){.pit-surprise-popup{min-height:0;padding:22px 20px;gap:12px}.pit-surprise-gift{height:180px;transform:scale(.82)}}
+@media(prefers-reduced-motion:reduce){.pit-surprise-popup:before,.pit-surprise-gift,.pit-surprise-spark{animation:none!important}}
