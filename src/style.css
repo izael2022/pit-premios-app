@@ -568,3 +568,15 @@ main{padding:20px!important}
 /* FIX VISUAL - reconstrução vetorial de referência */
 .pit-reference-modal{overflow:hidden}.pit-wheel-reference-stage{width:min(330px,80vw);aspect-ratio:1;margin:20px auto 30px;position:relative}.pit-wheel-svg{width:100%;height:100%;display:block;filter:drop-shadow(0 13px 14px #0009);transition:transform .2s}.pit-wheel-pointer{position:absolute;top:-2px;left:50%;transform:translateX(-50%);z-index:5;width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-top:38px solid #ffe05a;filter:drop-shadow(0 3px 2px #650900)}.pit-wheel-spin{animation:pitReferenceSpin 4.6s cubic-bezier(.08,.76,.12,1) forwards}@keyframes pitReferenceSpin{to{transform:rotate(1800deg)}}
 .pit-gift-chest-stage{width:min(340px,85vw);height:285px;position:relative;display:grid;place-items:center;margin:12px auto 18px}.pit-gift-chest-svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 17px 17px #0009);animation:pitGiftHover 3s ease-in-out infinite}.gift-lid{transform-origin:170px 150px;transition:transform .7s}.pit-gift-opening .gift-lid{animation:pitGiftLidOpen .8s cubic-bezier(.2,.8,.2,1) forwards}.pit-gift-opening .gift-bow{animation:pitGiftLidOpen .8s cubic-bezier(.2,.8,.2,1) forwards}.gift-shine{position:absolute;top:40px;left:35px;color:#ffe56d;font-size:28px;text-shadow:0 0 15px #ffcf45;animation:pitGiftSpark 1.5s infinite}.gift-shine-two{left:auto;right:35px;top:72px;animation-delay:.6s}.pit-gift-opening .pit-gift-chest-svg{animation:pitGiftReveal .9s ease forwards}@keyframes pitGiftHover{50%{transform:translateY(-7px)}}@keyframes pitGiftLidOpen{to{transform:translateY(-50px) rotate(-24deg)}}@keyframes pitGiftReveal{to{transform:scale(1.06)}}@keyframes pitGiftSpark{50%{opacity:.45;transform:scale(.75)}}
+
+/* Refinamento visual do baú e da roleta */
+.pit-gift-chest-stage{height:300px!important;filter:drop-shadow(0 8px 16px #0005)!important}
+.pit-gift-chest-svg{animation:pitGiftHover 2.6s ease-in-out infinite!important;filter:drop-shadow(0 18px 18px #000a)!important}
+.gift-base rect:first-child{rx:22px!important;stroke-width:13!important;filter:drop-shadow(0 4px 0 #67220a)!important}
+.gift-base rect:nth-child(2){opacity:.2!important}
+.gift-base rect:nth-child(4){stroke-width:5!important}
+.gift-lid rect:first-child{rx:26px!important;stroke-width:13!important;filter:drop-shadow(0 5px 0 #67220a)!important}
+.gift-lid rect:nth-child(2){opacity:.2!important}
+.gift-lid rect:nth-child(4){stroke-width:5!important}
+.gift-bow{display:none!important}
+.pit-gift-chest-stage:after{content:"";position:absolute;pointer-events:none;inset:20px 24px 25px;border-radius:28px;background:radial-gradient(ellipse at 50% 58%,#ffca4b22,transparent 68%);z-index:-1}
