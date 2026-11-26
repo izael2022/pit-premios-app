@@ -1,18 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 440">
-<defs><linearGradient id="wood" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#a65a16"/><stop offset=".35" stop-color="#6d2e09"/><stop offset=".7" stop-color="#3b1705"/><stop offset="1" stop-color="#8a4210"/></linearGradient><linearGradient id="gold" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff3a0"/><stop offset=".25" stop-color="#ffbf28"/><stop offset=".55" stop-color="#bd7008"/><stop offset=".8" stop-color="#ffe26b"/><stop offset="1" stop-color="#9a5100"/></linearGradient><radialGradient id="glow"><stop stop-color="#ffd95b" stop-opacity=".55"/><stop offset="1" stop-color="#ffd95b" stop-opacity="0"/></radialGradient></defs>
-<ellipse cx="250" cy="390" rx="210" ry="38" fill="url(#glow)"/>
-<g fill="#d99119" stroke="#8b4a06" stroke-width="4"><ellipse cx="160" cy="365" rx="38" ry="17"/><ellipse cx="210" cy="378" rx="42" ry="18"/><ellipse cx="290" cy="378" rx="43" ry="18"/><ellipse cx="340" cy="364" rx="38" ry="18"/><ellipse cx="185" cy="346" rx="38" ry="18"/><ellipse cx="315" cy="346" rx="39" ry="18"/></g>
-<g stroke="url(#gold)" stroke-width="20" stroke-linejoin="round"><path fill="url(#wood)" d="M85 184 Q65 114 142 78 Q250 30 358 78 Q435 114 415 184 L390 218 H110Z"/><path fill="url(#wood)" d="M95 176 H405 V337 Q405 360 380 360 H120 Q95 360 95 337Z"/></g>
-<g fill="none" stroke="url(#gold)" stroke-width="17"><path d="M120 95 Q85 132 112 181"/><path d="M380 95 Q415 132 388 181"/><path d="M142 88 Q250 47 358 88"/></g>
-<path fill="url(#wood)" stroke="url(#gold)" stroke-width="20" d="M72 182 Q250 212 428 182 L412 225 Q250 250 88 225Z"/>
-<path fill="url(#wood)" stroke="url(#gold)" stroke-width="18" d="M88 220 H412 V330 Q412 355 385 355 H115 Q88 355 88 330Z"/>
-<g fill="none" stroke="url(#gold)" stroke-width="16"><path d="M115 236 V338"/><path d="M385 236 V338"/><path d="M90 278 H410"/></g>
-<g fill="#f5c44c" stroke="#a35c08" stroke-width="5"><rect x="205" y="205" width="90" height="85" rx="16"/><path d="M225 205 V280 M275 205 V280" stroke="#a35c08" stroke-width="6"/></g>
-<g fill="#8c4508" stroke="url(#gold)" stroke-width="9"><rect x="220" y="258" width="60" height="85" rx="12"/><circle cx="250" cy="294" r="11" fill="#3a1604"/></g>
-<g fill="url(#gold)" stroke="#8b4a06" stroke-width="5"><circle cx="125" cy="233" r="19"/><circle cx="375" cy="233" r="19"/><circle cx="125" cy="335" r="19"/><circle cx="375" cy="335" r="19"/></g>
-<g fill="#e8a51d" stroke="#9a5708" stroke-width="4"><ellipse cx="165" cy="198" rx="43" ry="20"/><ellipse cx="220" cy="190" rx="39" ry="18"/><ellipse cx="278" cy="190" rx="40" ry="18"/><ellipse cx="335" cy="198" rx="42" ry="20"/><ellipse cx="180" cy="174" rx="38" ry="18"/><ellipse cx="250" cy="169" rx="43" ry="20"/><ellipse cx="320" cy="174" rx="37" ry="18"/></g>
-<g fill="url(#gold)" stroke="#a3630a" stroke-width="3"><ellipse cx="160" cy="183" rx="43" ry="19"/><ellipse cx="220" cy="166" rx="38" ry="19"/><ellipse cx="280" cy="166" rx="38" ry="19"/><ellipse cx="340" cy="183" rx="43" ry="19"/><ellipse cx="188" cy="148" rx="40" ry="18"/><ellipse cx="250" cy="143" rx="45" ry="20"/><ellipse cx="312" cy="148" rx="40" ry="18"/></g>
-<g fill="#ffe37a" stroke="#b87512" stroke-width="2"><path d="M180 148 l8 -7 8 7 -8 7Z"/><path d="M250 143 l9 -8 9 8 -9 8Z"/><path d="M312 148 l8 -7 8 7 -8 7Z"/><path d="M220 166 l8 -7 8 7 -8 7Z"/><path d="M280 166 l8 -7 8 7 -8 7Z"/></g>
-<path fill="url(#gold)" stroke="#9a5708" stroke-width="6" d="M220 50 Q220 10 250 10 Q280 10 280 50 L280 65 H220Z"/>
-<g fill="url(#gold)" stroke="#8b4a06" stroke-width="5"><circle cx="125" cy="233" r="14"/><circle cx="375" cy="233" r="14"/><circle cx="125" cy="335" r="14"/><circle cx="375" cy="335" r="14"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 650">
+<defs>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff8bd"/><stop offset=".15" stop-color="#ffd54d"/><stop offset=".36" stop-color="#b96c0b"/><stop offset=".55" stop-color="#ffdc60"/><stop offset=".77" stop-color="#a45a08"/><stop offset="1" stop-color="#fff0a1"/></linearGradient>
+ <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9d4a13"/><stop offset=".18" stop-color="#4b1d09"/><stop offset=".45" stop-color="#8d3c0c"/><stop offset=".62" stop-color="#3e1908"/><stop offset=".82" stop-color="#74320b"/><stop offset="1" stop-color="#321306"/></linearGradient>
+ <linearGradient id="lidwood" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a85818"/><stop offset=".35" stop-color="#5c2509"/><stop offset=".7" stop-color="#9b4b14"/><stop offset="1" stop-color="#421b07"/></linearGradient>
+ <radialGradient id="shine"><stop stop-color="#fff7b5" stop-opacity=".8"/><stop offset="1" stop-color="#ffd24c" stop-opacity="0"/></radialGradient>
+ <filter id="shadow"><feGaussianBlur stdDeviation="18"/></filter>
+ <pattern id="grain" width="80" height="36" patternUnits="userSpaceOnUse"><path d="M0 9 Q20 3 42 10 T80 7 M0 25 Q25 18 45 27 T80 23" fill="none" stroke="#e39a3a" stroke-opacity=".22" stroke-width="3"/></pattern>
+</defs>
+<ellipse cx="350" cy="590" rx="250" ry="35" fill="#000" opacity=".3" filter="url(#shadow)"/>
+<!-- coins spilling below -->
+<g fill="url(#gold)" stroke="#a15c09" stroke-width="5"><ellipse cx="160" cy="550" rx="62" ry="23" transform="rotate(-18 160 550)"/><ellipse cx="225" cy="585" rx="64" ry="24" transform="rotate(15 225 585)"/><ellipse cx="365" cy="585" rx="62" ry="24"/><ellipse cx="500" cy="555" rx="62" ry="23" transform="rotate(-12 500 555)"/><ellipse cx="290" cy="560" rx="57" ry="22" transform="rotate(-9 290 560)"/><ellipse cx="420" cy="545" rx="60" ry="24" transform="rotate(18 420 545)"/></g>
+<!-- open curved lid -->
+<path d="M115 290 Q60 205 115 125 Q165 48 350 44 Q535 48 585 125 Q640 205 585 290 L545 330 H155Z" fill="url(#lidwood)" stroke="url(#gold)" stroke-width="28" stroke-linejoin="round"/>
+<path d="M135 270 Q105 195 155 132 Q220 85 350 85 Q480 85 545 132 Q595 195 565 270" fill="none" stroke="#e5a13a" stroke-width="10"/>
+<path d="M160 140 Q235 100 350 102 T540 140 M145 190 Q250 154 350 160 T555 190 M130 235 Q260 205 350 210 T570 235" fill="none" stroke="#3b1708" stroke-width="9" opacity=".7"/>
+<path d="M160 140 Q235 100 350 102 T540 140 M145 190 Q250 154 350 160 T555 190" fill="none" stroke="#d88736" stroke-width="4" opacity=".65"/>
+<path d="M110 285 L590 285 L555 340 L145 340Z" fill="url(#gold)" stroke="#9a5106" stroke-width="10"/>
+<!-- coin mound -->
+<g fill="url(#gold)" stroke="#a3640c" stroke-width="6">
+ <ellipse cx="200" cy="350" rx="70" ry="27" transform="rotate(-8 200 350)"/><ellipse cx="280" cy="333" rx="72" ry="28" transform="rotate(12 280 333)"/><ellipse cx="370" cy="340" rx="76" ry="28"/><ellipse cx="460" cy="350" rx="70" ry="27" transform="rotate(-14 460 350)"/>
+ <ellipse cx="245" cy="305" rx="64" ry="25" transform="rotate(-18 245 305)"/><ellipse cx="340" cy="303" rx="70" ry="26"/><ellipse cx="425" cy="305" rx="66" ry="26" transform="rotate(12 425 305)"/>
+ <ellipse cx="285" cy="278" rx="64" ry="25"/><ellipse cx="380" cy="276" rx="67" ry="25" transform="rotate(-8 380 276)"/>
+</g>
+<g fill="#fff1a0" opacity=".65"><path d="M195 335 l12 -8 12 8 -12 8Z"/><path d="M280 318 l12 -8 12 8 -12 8Z"/><path d="M370 325 l12 -8 12 8 -12 8Z"/><path d="M455 336 l12 -8 12 8 -12 8Z"/></g>
+<!-- chest front body -->
+<path d="M125 340 H575 V520 Q575 555 540 555 H160 Q125 555 125 520Z" fill="url(#wood)" stroke="url(#gold)" stroke-width="28"/>
+<path d="M145 375 H555 V510 Q555 535 525 535 H175 Q145 535 145 510Z" fill="url(#grain)" opacity=".75"/>
+<path d="M150 390 Q350 405 550 390 M150 435 Q350 450 550 435 M150 480 Q350 492 550 480" fill="none" stroke="#2e1005" stroke-width="8" opacity=".6"/>
+<!-- gilded frame, corner plates -->
+<g fill="url(#gold)" stroke="#9d5908" stroke-width="8"><rect x="125" y="345" width="70" height="62" rx="12"/><rect x="505" y="345" width="70" height="62" rx="12"/><rect x="125" y="490" width="70" height="62" rx="12"/><rect x="505" y="490" width="70" height="62" rx="12"/><rect x="195" y="345" width="30" height="210"/><rect x="475" y="345" width="30" height="210"/><rect x="125" y="345" width="450" height="32"/><rect x="125" y="520" width="450" height="30"/></g>
+<!-- central lock -->
+<path d="M300 350 H400 V435 H300Z" fill="url(#gold)" stroke="#9a5909" stroke-width="10"/><path d="M315 410 H385 V500 Q385 520 365 520 H335 Q315 520 315 500Z" fill="#713008" stroke="url(#gold)" stroke-width="14"/><circle cx="350" cy="458" r="18" fill="url(#gold)"/><circle cx="350" cy="458" r="8" fill="#401906"/>
+<!-- side ring -->
+<circle cx="555" cy="455" r="43" fill="none" stroke="url(#gold)" stroke-width="20"/><circle cx="555" cy="455" r="25" fill="none" stroke="#9a5107" stroke-width="6"/>
+<!-- handle -->
+<path d="M285 55 Q285 0 350 0 Q415 0 415 55" fill="none" stroke="url(#gold)" stroke-width="25"/><path d="M285 55 Q285 0 350 0 Q415 0 415 55" fill="none" stroke="#fff2a1" stroke-width="5" opacity=".55"/>
+<!-- bolts -->
+<g fill="url(#gold)" stroke="#965307" stroke-width="6"><circle cx="160" cy="365" r="17"/><circle cx="540" cy="365" r="17"/><circle cx="160" cy="530" r="17"/><circle cx="540" cy="530" r="17"/></g>
+<circle cx="250" cy="190" r="130" fill="url(#shine)" opacity=".15"/>
 </svg>
