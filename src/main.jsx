@@ -97,7 +97,7 @@ function App(){
     <span className="pit-home-tile-art pit-home-chest-art">🎁</span><span><strong>Baú Diário</strong><small>Abra e receba recompensas!</small></span><ChevronRight size={20}/>
    </button>
   </div>
-  
+  {surpriseEvents.length>0&&<div className="pit-home-surprise-events">{surpriseEvents.filter(ev=>!rewardHistory.some(h=>h.system_key==='surprise_chest'&&h.event_id===ev.id)).map(ev=><button key={ev.id} className="pit-home-reward-tile pit-home-surprise-tile" type="button" onClick={()=>setSurprisePopupEvent(ev)}><span className="pit-home-tile-art pit-home-surprise-art">🎁✨</span><span><strong>Baú Surpresa disponível!</strong><small>Toque para resgatar seu bônus especial.</small></span><ChevronRight size={20}/></button>)}</div>}
  </section>
 
  <section className="pit-compact-calendar">
