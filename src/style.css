@@ -580,3 +580,8 @@ main{padding:20px!important}
 .gift-lid rect:nth-child(4){stroke-width:5!important}
 .gift-bow{display:none!important}
 .pit-gift-chest-stage:after{content:"";position:absolute;pointer-events:none;inset:20px 24px 25px;border-radius:28px;background:radial-gradient(ellipse at 50% 58%,#ffca4b22,transparent 68%);z-index:-1}
+
+/* CHEST BLUE-GOLD REFERENCE polish */
+.pit-gift-chest-svg{filter:drop-shadow(0 20px 24px #000a) drop-shadow(0 0 22px #269bff44)!important;}
+.pit-gift-chest-stage:before{content:"";position:absolute;inset:12px 20px;background:radial-gradient(ellipse at 50% 55%,#168bff30,transparent 65%);pointer-events:none;}
+.pit-gift-opening .gift-lid{animation:pitGiftLidOpen .8s cubic-bezier(.2,.8,.2,1) forwards!important;}
